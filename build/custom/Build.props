@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!--
+      ======================================================================================= 
+      Customizable common properties to be shared between the projects within the solution
+      =======================================================================================
+    -->
+  <PropertyGroup>
+    <Authors>Radek Adamec</Authors>
+    <Company>Radek Adamec</Company>
+    <Copyright>Radek Adamec 2018</Copyright>
+    <Description>Lightweight in-process asynchronous message based inter-components communication framework - Actor System</Description>
+    <PackageLicenseUrl>https://github.com/adamecr/Common.Actor/blob/master/license.txt</PackageLicenseUrl>
+    <PackageLicense>MIT</PackageLicense>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/adamecr/Common.Actor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/adamecr/Common.Actor.git</RepositoryUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/adamecr/Common.Actor/master/icon.png</PackageIconUrl>
+    <PushPackagesToVstsFeed>false</PushPackagesToVstsFeed>
+  </PropertyGroup>
+</Project>

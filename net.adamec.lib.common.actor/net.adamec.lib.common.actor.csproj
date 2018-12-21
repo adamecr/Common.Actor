@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+   <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>$(Authors)</Authors>
+    <Company>$(Company)</Company>
+    <Copyright>$(Copyright)</Copyright>
+    <Description>Library of common helpers, utilities and extensions</Description>
+    <PackageLicenseUrl>$(PackageLicenseUrl)</PackageLicenseUrl>
+    <Version>$(Version)</Version>
+    <Product>net.adamec.lib.common.actor</Product>
+    <PackageProjectUrl>$(PackageProjectUrl)</PackageProjectUrl>
+    <PackageIconUrl>$(PackageIconUrl)</PackageIconUrl>
+    <RepositoryUrl>$(RepositoryUrl)</RepositoryUrl>
+    <PackageTags>RADCommons ActorSystem</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <FileVersion>$(FileVersion)</FileVersion>
+    <AssemblyVersion>$(AssemblyVersion)</AssemblyVersion>
+    <IsPackable>true</IsPackable>
+ </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.5.11" />
+    <PackageReference Include="ProxyFoo" Version="0.4.2" />
+    <PackageReference Include="RadCommons.extensions.TypeExtensions.DefaultValue" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="RadCommons.logging.CommonLogging" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="RadCommons.utils.BaseDisposable" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

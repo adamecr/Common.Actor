@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net.adamec.lib.common.actor", "net.adamec.lib.common.actor\net.adamec.lib.common.actor.csproj", "{B93BEECC-420A-41A9-95D6-F0FD35E4792F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DD37208B-53A1-472E-BC1E-D0BECBDD4A94} = {DD37208B-53A1-472E-BC1E-D0BECBDD4A94}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net.adamec.lib.common.actor.test", "net.adamec.lib.common.actor.test\net.adamec.lib.common.actor.test.csproj", "{694CA899-1B7B-4D4A-8FFB-73307FF5EF77}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DD37208B-53A1-472E-BC1E-D0BECBDD4A94} = {DD37208B-53A1-472E-BC1E-D0BECBDD4A94}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "build", "build\build.csproj", "{DD37208B-53A1-472E-BC1E-D0BECBDD4A94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "build.tasks", "build.tasks\build.tasks.csproj", "{C2EA8C8F-14F1-4456-B009-2CFFCD810A14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D9F5AE31-7083-47FB-90D2-F6445793B82B}"
+	ProjectSection(SolutionItems) = preProject
+		changelog.md = changelog.md
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		license.txt = license.txt
+		netcoreTemplate.sln.DotSettings.user = netcoreTemplate.sln.DotSettings.user
+		readme.md = readme.md
+		release.chklist = release.chklist
+		template.json.bak = template.json.bak
+		Version.props = Version.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B93BEECC-420A-41A9-95D6-F0FD35E4792F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B93BEECC-420A-41A9-95D6-F0FD35E4792F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B93BEECC-420A-41A9-95D6-F0FD35E4792F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B93BEECC-420A-41A9-95D6-F0FD35E4792F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694CA899-1B7B-4D4A-8FFB-73307FF5EF77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694CA899-1B7B-4D4A-8FFB-73307FF5EF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694CA899-1B7B-4D4A-8FFB-73307FF5EF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694CA899-1B7B-4D4A-8FFB-73307FF5EF77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD37208B-53A1-472E-BC1E-D0BECBDD4A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD37208B-53A1-472E-BC1E-D0BECBDD4A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD37208B-53A1-472E-BC1E-D0BECBDD4A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD37208B-53A1-472E-BC1E-D0BECBDD4A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2EA8C8F-14F1-4456-B009-2CFFCD810A14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2EA8C8F-14F1-4456-B009-2CFFCD810A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2EA8C8F-14F1-4456-B009-2CFFCD810A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2EA8C8F-14F1-4456-B009-2CFFCD810A14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39FAD975-54FD-4D9E-A704-A951A10AD22B}
+	EndGlobalSection
+EndGlobal
