@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RAD Actor System Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js" ></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+body { color: #24292e;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size: 16px;line-height: 1.5; word-wrap: break-word;margin: 20px;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h4 {font-size: 1.25em;}
+h1, h2 {border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+h1, h2, h3,  h4{font-weight: 600;line-height: 1.25;margin-bottom: 16px;margin-top: 24px;}
+blockquote, ol, p, pre, table, ul {margin-bottom: 16px;margin-top: 0;}
+a{color: #0366d6;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a.link-external:hover{text-decoration: underline; color:gray;}
+pre code {border: 0;display: inline;line-height: inherit;margin: 2px;overflow: visible;padding: 5px ;word-wrap: normal;}
+pre>code {font-size: 100%;white-space: pre;word-break: normal;padding: 0px}
+code {border-radius: 3px;}
+code, pre {font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+pre {background-color: #f6f8fa;border-radius: 3px;font-size: 85%;line-height: 1.45;overflow: auto;padding: 0px;word-wrap: normal;}
+table {display: block;overflow: auto;width: 100%;border-collapse: collapse;border-spacing: 0;border-color: grey;}
+table tr {background-color: #fff;border-top: 1px solid #c6cbd1;}
+table tr:nth-child(2n) {background-color: #f6f8fa;}
+table td, table th {border: 1px solid #dfe2e5;padding: 6px 13px;}
+dl {display: grid; grid-template-columns: max-content auto; margin: 5px;}
+p+dl {margin-top: -15px;}
+dt {grid-column-start: 1;}
+dd {grid-column-start: 2;}
+</style>
+</head>
+<body>
+
+<h1>  RAD Actor System Documentation </h1>
+<h2>  <a id="n-net.adamec.lib.common.actor.actor__1ldg5ba" ></a>  net.adamec.lib.common.actor.actor Namespace </h2>
+<h3>  Classes </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a></td><td>public abstract</td><td>Reference implementation of <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >IActor</a> that can be simply inherited in own actors. It provides the automatic registration in constructor and de-registration while disposing. The actor reference is published via <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.self__1kgayjx" >Self</a> property.</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefempty__c8py9n" >ActorRefEmpty</a></td><td>public</td><td>Reference to empty virtual actor</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a></td><td>internal</td><td>Internal implementation of actor reference. Encapsulates the mailbox (queue) for the actor</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefnameonly__eu2rbh" >ActorRefNameOnly</a></td><td>public abstract</td><td>Base class for the virtual actors</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefs__17fr5vh" >ActorRefs</a></td><td>public</td><td>Common references to virtual actors</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefsystem__43zotr" >ActorRefSystem</a></td><td>public</td><td>Reference to system virtual actor</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a></td><td>internal</td><td>Internal actor used in <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.ask_net.adamec.lib.common.actor.actor.iactorref-system.object-system.type-system.int32-system.boolean___14ecl67" >Ask(IActorRef, object, Type, int, bool)</a> methods to implement Request-Reply pattern</td></tr>
+</table>
+<p> </p>
+<h3>  Interfaces </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >IActor</a></td><td>public abstract</td><td>Actor interface</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >IActorRef</a></td><td>public abstract</td><td>Reference to actor</td></tr>
+</table>
+<p> </p>
+<h3>  Delegates </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.receive__1adwyjn" >Receive</a></td><td>public</td><td>Delegate describing the recipient target (method processing the messages)</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.actor__buuxwr" ></a>  Actor Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\Actor.cs</small></p>
+<p>Reference implementation of <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >IActor</a> that can be simply inherited in own actors. It provides the automatic registration in constructor and de-registration while disposing. The actor reference is published via <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.self__1kgayjx" >Self</a> property.</p>
+<pre><code class="csharp">public abstract class Actor : BaseDisposable, IActor</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >net.adamec.lib.common.utils.BaseDisposable</a><br />
+Derived: <a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.exchangeactor-3__1p1cfiq" >net.adamec.lib.common.actor.actor.exchanges.@base.ExchangeActor&lt;TSubscription,TSubscriptionMessage,TUnSubscriptionMessage&gt;</a><br />
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" class="link-external" target="_blank" >IDisposable</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >net.adamec.lib.common.actor.actor.IActor</a></p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.actorsystem__1g6mmur" >ActorSystem</a></td><td>protected</td><td>Actor system</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.canreceive__19sq0hk" >CanReceive</a></td><td>public</td><td>Returns true if the actor can receive messages. If false, the messages will not be dispatched to the actor (they will still be enqueued to actor&#39;s mailbox)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.dropallreceive__1g3skf2" >DropAllReceive</a></td><td>protected</td><td>Message handler that drops all messages and returns false (unhandled)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.receivetarget__rq6a5r" >ReceiveTarget</a></td><td>public</td><td>Current method processing the messages (to where the messages are dispatched to)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.self__1kgayjx" >Self</a></td><td>public</td><td>Actor reference to self</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.-ctor_net.adamec.lib.common.actor.actorsystem.iactorsystem-system.string___sft7zm" >Actor(IActorSystem, string)</a></td><td>protected</td><td>CTOR Registers the actor into <strong>actorSystem</strong> using given <strong>name</strong> Enables the message processing of the actor and sets the <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.receivetarget__rq6a5r" >ReceiveTarget</a> to <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.receive_net.adamec.lib.common.actor.message.envelope___lic5c4" >Receive(Envelope)</a> method</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.become_net.adamec.lib.common.actor.actor.receive___cfu8bb" >Become(Receive)</a></td><td>protected</td><td>Switches the actor behavior by setting the message <strong>handler</strong> . When the <strong>handler</strong> is not set, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.dropallreceive__1g3skf2" >DropAllReceive</a> handler is used.</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.becomedefault__gzylss" >BecomeDefault()</a></td><td>protected</td><td>Switch the message handler to <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.receive_net.adamec.lib.common.actor.message.envelope___lic5c4" >Receive(Envelope)</a> method</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.disposemanaged__m3e4v4" >DisposeManaged()</a></td><td>protected</td><td>De-registers the actor from actor system</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.receive_net.adamec.lib.common.actor.message.envelope___lic5c4" >Receive(Envelope)</a></td><td>protected</td><td>Default message handler.</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.unhandled_net.adamec.lib.common.actor.message.envelope___1cb59zm" >Unhandled(Envelope)</a></td><td>protected</td><td>Helper for processing unhandled messages, returns false by default</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actor.actorsystem__1g6mmur" ></a>  Actor.ActorSystem Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Actor system</p>
+<pre><code class="csharp">protected IActorSystem ActorSystem { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >net.adamec.lib.common.actor.actorsystem.IActorSystem</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actor.canreceive__19sq0hk" ></a>  Actor.CanReceive Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Returns true if the actor can receive messages. If false, the messages will not be dispatched to the actor (they will still be enqueued to actor&#39;s mailbox)</p>
+<pre><code class="csharp">public bool CanReceive { get; protected set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactor.canreceive__f9x86f" >IActor.CanReceive</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actor.dropallreceive__1g3skf2" ></a>  Actor.DropAllReceive Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Message handler that drops all messages and returns false (unhandled)</p>
+<pre><code class="csharp">protected Receive DropAllReceive { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.receive__1adwyjn" >net.adamec.lib.common.actor.actor.Receive</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actor.receivetarget__rq6a5r" ></a>  Actor.ReceiveTarget Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Current method processing the messages (to where the messages are dispatched to)</p>
+<pre><code class="csharp">public Receive ReceiveTarget { get; protected set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.receive__1adwyjn" >net.adamec.lib.common.actor.actor.Receive</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactor.receivetarget__n44wdg" >IActor.ReceiveTarget</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actor.self__1kgayjx" ></a>  Actor.Self Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Actor reference to self</p>
+<pre><code class="csharp">public IActorRef Self { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actor.-ctor_net.adamec.lib.common.actor.actorsystem.iactorsystem-system.string___sft7zm" ></a>  Actor.Actor(IActorSystem, string) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>CTOR Registers the actor into <strong>actorSystem</strong> using given <strong>name</strong> Enables the message processing of the actor and sets the <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.receivetarget__rq6a5r" >ReceiveTarget</a> to <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.receive_net.adamec.lib.common.actor.message.envelope___lic5c4" >Receive(Envelope)</a> method</p>
+<pre><code class="csharp">protected Actor(IActorSystem actorSystem, string name)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >net.adamec.lib.common.actor.actorsystem.IActorSystem</a> <strong>actorSystem</strong></dt><dd>Actor system</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Actor name</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actor.become_net.adamec.lib.common.actor.actor.receive___cfu8bb" ></a>  Actor.Become(Receive) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Switches the actor behavior by setting the message <strong>handler</strong> . When the <strong>handler</strong> is not set, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actor.dropallreceive__1g3skf2" >DropAllReceive</a> handler is used.</p>
+<pre><code class="csharp">protected virtual void Become(Receive handler)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.receive__1adwyjn" >net.adamec.lib.common.actor.actor.Receive</a> <strong>handler</strong></dt><dd>New message handler</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actor.becomedefault__gzylss" ></a>  Actor.BecomeDefault() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Switch the message handler to <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.receive_net.adamec.lib.common.actor.message.envelope___lic5c4" >Receive(Envelope)</a> method</p>
+<pre><code class="csharp">protected virtual void BecomeDefault()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actor.disposemanaged__m3e4v4" ></a>  Actor.DisposeManaged() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>De-registers the actor from actor system</p>
+<pre><code class="csharp">protected override void DisposeManaged()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Overrides: <a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85" >BaseDisposable.DisposeManaged()</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actor.receive_net.adamec.lib.common.actor.message.envelope___lic5c4" ></a>  Actor.Receive(Envelope) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Default message handler.</p>
+<pre><code class="csharp">protected virtual bool Receive(Envelope envelope)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.message__m00bpk.html#t-net.adamec.lib.common.actor.message.envelope__5oxc3s" >net.adamec.lib.common.actor.message.Envelope</a> <strong>envelope</strong></dt><dd>Envelope with incoming message</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True if handled, false if not handled. The default implementation calls <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actor.unhandled_net.adamec.lib.common.actor.message.envelope___1cb59zm" >Unhandled(Envelope)</a> method that returns false</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actor.unhandled_net.adamec.lib.common.actor.message.envelope___1cb59zm" ></a>  Actor.Unhandled(Envelope) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >Actor</a><br />
+Sources: actor\Actor.cs</small></p>
+<p>Helper for processing unhandled messages, returns false by default</p>
+<pre><code class="csharp">protected virtual bool Unhandled(Envelope envelope)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.message__m00bpk.html#t-net.adamec.lib.common.actor.message.envelope__5oxc3s" >net.adamec.lib.common.actor.message.Envelope</a> <strong>envelope</strong></dt><dd>Envelope with incoming message</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>Should return false for unhandled messages and true if message has been finally handled here</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.actorrefempty__c8py9n" ></a>  ActorRefEmpty Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Reference to empty virtual actor</p>
+<pre><code class="csharp">public class ActorRefEmpty : ActorRefNameOnly</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefnameonly__eu2rbh" >net.adamec.lib.common.actor.actor.ActorRefNameOnly</a><br />
+Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefempty.name__175l78m" >Name</a></td><td>public</td><td>Name of the actor - [EMPTY]</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefempty.name__175l78m" ></a>  ActorRefEmpty.Name Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefempty__c8py9n" >ActorRefEmpty</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Name of the actor - [EMPTY]</p>
+<pre><code class="csharp">public override string Name { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Overrides: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefnameonly.name__qk183e" >ActorRefNameOnly.Name</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" ></a>  ActorRefInternal Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Internal implementation of actor reference. Encapsulates the mailbox (queue) for the actor</p>
+<pre><code class="csharp">internal class ActorRefInternal : IActorRef</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#f-net.adamec.lib.common.actor.actor.actorrefinternal.actorsystem__vswqpr" >actorSystem</a></td><td>private</td><td>Actor systems</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#f-net.adamec.lib.common.actor.actor.actorrefinternal.isbeingprocessed__15vnbvu" >isBeingProcessed</a></td><td>private</td><td>Flag whether the actor (mailbox) is being processed</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#f-net.adamec.lib.common.actor.actor.actorrefinternal.isbeingprocessedlock__1p7p9sp" >isBeingProcessedLock</a></td><td>private</td><td>Log used for <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#f-net.adamec.lib.common.actor.actor.actorrefinternal.isbeingprocessed__15vnbvu" >isBeingProcessed</a> flag ensuring the thread safe operations</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#f-net.adamec.lib.common.actor.actor.actorrefinternal.messagelogger__1vqsaru" >MessageLogger</a></td><td>protected static</td><td></td></tr>
+</table>
+<p> </p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefinternal.actor__10pf4r2" >Actor</a></td><td>internal</td><td>Actor the reference belongs to</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefinternal.isbeingprocessed__1cq6t5g" >IsBeingProcessed</a></td><td>internal</td><td>Flag whether the actor (mailbox) is being processed</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefinternal.name__1uhi1my" >Name</a></td><td>public</td><td>Name of the actor</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefinternal.queue__2gyn6w" >Queue</a></td><td>internal</td><td>Actor&#39;s mailbox (message queue)</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actorrefinternal.-ctor_net.adamec.lib.common.actor.actor.iactor-system.string-net.adamec.lib.common.actor.actorsystem.iactorsystem___8db4dq" >ActorRefInternal(IActor, string, IActorSystem)</a></td><td>internal</td><td>CTOR Creates the mailbox (queue) for the actor</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actorrefinternal.lockforprocessing__i64cop" >LockForProcessing()</a></td><td>internal</td><td>Locks the actor for message processing</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actorrefinternal.processingfinished__cj3e9v" >ProcessingFinished()</a></td><td>internal</td><td>Unlocks the actor for message processing</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actorrefinternal.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___ggyubr" >Tell(object, IActorRef, string)</a></td><td>public</td><td>Asynchronously delivers a message actor&#39;s mailbox in a non-blocking fashion.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actor.actorrefinternal.actorsystem__vswqpr" ></a>  ActorRefInternal.actorSystem Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Actor systems</p>
+<pre><code class="csharp">private readonly IActorSystem actorSystem</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >net.adamec.lib.common.actor.actorsystem.IActorSystem</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actor.actorrefinternal.isbeingprocessed__15vnbvu" ></a>  ActorRefInternal.isBeingProcessed Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Flag whether the actor (mailbox) is being processed</p>
+<pre><code class="csharp">private bool isBeingProcessed</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actor.actorrefinternal.isbeingprocessedlock__1p7p9sp" ></a>  ActorRefInternal.isBeingProcessedLock Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Log used for <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#f-net.adamec.lib.common.actor.actor.actorrefinternal.isbeingprocessed__15vnbvu" >isBeingProcessed</a> flag ensuring the thread safe operations</p>
+<pre><code class="csharp">private readonly object isBeingProcessedLock</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actor.actorrefinternal.messagelogger__1vqsaru" ></a>  ActorRefInternal.MessageLogger Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<pre><code class="csharp">protected static ILogger MessageLogger</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >net.adamec.lib.common.logging.ILogger</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefinternal.actor__10pf4r2" ></a>  ActorRefInternal.Actor Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Actor the reference belongs to</p>
+<pre><code class="csharp">internal IActor Actor { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >net.adamec.lib.common.actor.actor.IActor</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefinternal.isbeingprocessed__1cq6t5g" ></a>  ActorRefInternal.IsBeingProcessed Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Flag whether the actor (mailbox) is being processed</p>
+<pre><code class="csharp">internal bool IsBeingProcessed { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefinternal.name__1uhi1my" ></a>  ActorRefInternal.Name Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Name of the actor</p>
+<pre><code class="csharp">public string Name { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactorref.name__1ukc8z4" >IActorRef.Name</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefinternal.queue__2gyn6w" ></a>  ActorRefInternal.Queue Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Actor&#39;s mailbox (message queue)</p>
+<pre><code class="csharp">internal IMessageQueue Queue { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.queue__1lh8qrc.html#t-net.adamec.lib.common.actor.queue.imessagequeue__1ndgarl" >net.adamec.lib.common.actor.queue.IMessageQueue</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actorrefinternal.-ctor_net.adamec.lib.common.actor.actor.iactor-system.string-net.adamec.lib.common.actor.actorsystem.iactorsystem___8db4dq" ></a>  ActorRefInternal.ActorRefInternal(IActor, string, IActorSystem) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>CTOR Creates the mailbox (queue) for the actor</p>
+<pre><code class="csharp">internal ActorRefInternal(IActor actor, string name, IActorSystem actorSystem)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >net.adamec.lib.common.actor.actor.IActor</a> <strong>actor</strong></dt><dd>Actor</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the actor</dd><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >net.adamec.lib.common.actor.actorsystem.IActorSystem</a> <strong>actorSystem</strong></dt><dd>Actor system</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actorrefinternal.lockforprocessing__i64cop" ></a>  ActorRefInternal.LockForProcessing() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Locks the actor for message processing</p>
+<pre><code class="csharp">internal void LockForProcessing()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actorrefinternal.processingfinished__cj3e9v" ></a>  ActorRefInternal.ProcessingFinished() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Unlocks the actor for message processing</p>
+<pre><code class="csharp">internal void ProcessingFinished()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actorrefinternal.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___ggyubr" ></a>  ActorRefInternal.Tell(object, IActorRef, string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >ActorRefInternal</a><br />
+Sources: actor\ActorRefInternal.cs</small></p>
+<p>Asynchronously delivers a message actor&#39;s mailbox in a non-blocking fashion.</p>
+<pre><code class="csharp">public void Tell(object message, IActorRef sender, string routingKey = null)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>The message to be sent to the actor.</dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>The sender of this message. Defaults to <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefs.empty__6f5cpu" >Empty</a> if left to <code class="csharp">null</code> .</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>routingKey</strong></dt><dd>Optional routing key - additional information that can be used for routing/processing the message</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.iactorref.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___1xlz161" >IActorRef.Tell(object, IActorRef, string)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.actorrefnameonly__eu2rbh" ></a>  ActorRefNameOnly Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Base class for the virtual actors</p>
+<pre><code class="csharp">public abstract class ActorRefNameOnly : IActorRef</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+Derived: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefempty__c8py9n" >net.adamec.lib.common.actor.actor.ActorRefEmpty</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefsystem__43zotr" >net.adamec.lib.common.actor.actor.ActorRefSystem</a><br />
+Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefnameonly.name__qk183e" >Name</a></td><td>public abstract</td><td>Name of the actor</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actorrefnameonly.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___rh50yb" >Tell(object, IActorRef, string)</a></td><td>public</td><td>Empty implementation of the <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.iactorref.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___1xlz161" >Tell(object, IActorRef, string)</a> for the virtual actors</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefnameonly.name__qk183e" ></a>  ActorRefNameOnly.Name Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefnameonly__eu2rbh" >ActorRefNameOnly</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Name of the actor</p>
+<pre><code class="csharp">public abstract string Name { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactorref.name__1ukc8z4" >IActorRef.Name</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actorrefnameonly.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___rh50yb" ></a>  ActorRefNameOnly.Tell(object, IActorRef, string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefnameonly__eu2rbh" >ActorRefNameOnly</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Empty implementation of the <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.iactorref.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___1xlz161" >Tell(object, IActorRef, string)</a> for the virtual actors</p>
+<pre><code class="csharp">public void Tell(object message, IActorRef sender, string routingKey = null)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Ignored</dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Ignored</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>routingKey</strong></dt><dd>Ignored</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.iactorref.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___1xlz161" >IActorRef.Tell(object, IActorRef, string)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.actorrefs__17fr5vh" ></a>  ActorRefs Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Common references to virtual actors</p>
+<pre><code class="csharp">public class ActorRefs</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefs.empty__6f5cpu" >Empty</a></td><td>public static</td><td>Empty actor (means no real actor defined)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefs.system__1y8lt0o" >System</a></td><td>public static</td><td>System actor (to be used internally if needed)</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.actorrefs.-cctor__1qfbqdk" >ActorRefs()</a></td><td>private static</td><td>Static CTOR - Creates the static references</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefs.empty__6f5cpu" ></a>  ActorRefs.Empty Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefs__17fr5vh" >ActorRefs</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Empty actor (means no real actor defined)</p>
+<pre><code class="csharp">public static IActorRef Empty { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefs.system__1y8lt0o" ></a>  ActorRefs.System Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefs__17fr5vh" >ActorRefs</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>System actor (to be used internally if needed)</p>
+<pre><code class="csharp">public static IActorRef System { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.actorrefs.-cctor__1qfbqdk" ></a>  ActorRefs.ActorRefs() Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefs__17fr5vh" >ActorRefs</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Static CTOR - Creates the static references</p>
+<pre><code class="csharp">private static ActorRefs()</code></pre>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.actorrefsystem__43zotr" ></a>  ActorRefSystem Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Reference to system virtual actor</p>
+<pre><code class="csharp">public class ActorRefSystem : ActorRefNameOnly</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefnameonly__eu2rbh" >net.adamec.lib.common.actor.actor.ActorRefNameOnly</a><br />
+Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefsystem.name__q7wot2" >Name</a></td><td>public</td><td>Name of the actor - [SYSTEM]</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.actorrefsystem.name__q7wot2" ></a>  ActorRefSystem.Name Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefsystem__43zotr" >ActorRefSystem</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Name of the actor - [SYSTEM]</p>
+<pre><code class="csharp">public override string Name { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Overrides: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefnameonly.name__qk183e" >ActorRefNameOnly.Name</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" ></a>  SyncActor Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Internal actor used in <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.ask_net.adamec.lib.common.actor.actor.iactorref-system.object-system.type-system.int32-system.boolean___14ecl67" >Ask(IActorRef, object, Type, int, bool)</a> methods to implement Request-Reply pattern</p>
+<pre><code class="csharp">internal class SyncActor : BaseDisposable, IActor</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >net.adamec.lib.common.utils.BaseDisposable</a><br />
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" class="link-external" target="_blank" >IDisposable</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >net.adamec.lib.common.actor.actor.IActor</a></p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.actorsystem__1jy3biw" >ActorSystem</a></td><td>private</td><td></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.canreceive__37hi1h" >CanReceive</a></td><td>public</td><td>Returns true if the actor can receive messages. If false, the messages will not be dispatched to the actor (they will still be enqueued to actor&#39;s mailbox)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.receivetarget__fqhb9w" >ReceiveTarget</a></td><td>public</td><td>Current method processing the messages (to where the messages are dispatched to)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.response__1nj5lt1" >Response</a></td><td>public</td><td>Response message envelope</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.responsetype__13oqz9h" >ResponseType</a></td><td>public</td><td>Expected response type</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.self__7tb7a6" >Self</a></td><td>public</td><td>Actor reference to self</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.waithandle__8yoz6j" >WaitHandle</a></td><td>public</td><td>Wait handle used to signal that the response has arrived</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.syncactor.-ctor_net.adamec.lib.common.actor.actorsystem.iactorsystem-system.type-system.threading.autoresetevent___2ekqnh" >SyncActor(IActorSystem, Type, AutoResetEvent)</a></td><td>public</td><td>CTOR</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.syncactor.disposemanaged__1ldukpd" >DisposeManaged()</a></td><td>protected</td><td>Deregisters itself from actor system</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.syncactor.receive_net.adamec.lib.common.actor.message.envelope___1adxu0d" >Receive(Envelope)</a></td><td>protected</td><td>Message handler - waits for the message of required <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.responsetype__13oqz9h" >ResponseType</a> and when arrived, the message envelope is set to <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.response__1nj5lt1" >Response</a> and the <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.waithandle__8yoz6j" >WaitHandle</a> is set to signal the blocked &quot;parent&quot; thread that the response has been received.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.syncactor.actorsystem__1jy3biw" ></a>  SyncActor.ActorSystem Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<pre><code class="csharp">private IActorSystem ActorSystem { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >net.adamec.lib.common.actor.actorsystem.IActorSystem</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.syncactor.canreceive__37hi1h" ></a>  SyncActor.CanReceive Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Returns true if the actor can receive messages. If false, the messages will not be dispatched to the actor (they will still be enqueued to actor&#39;s mailbox)</p>
+<pre><code class="csharp">public bool CanReceive { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactor.canreceive__f9x86f" >IActor.CanReceive</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.syncactor.receivetarget__fqhb9w" ></a>  SyncActor.ReceiveTarget Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Current method processing the messages (to where the messages are dispatched to)</p>
+<pre><code class="csharp">public Receive ReceiveTarget { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.receive__1adwyjn" >net.adamec.lib.common.actor.actor.Receive</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactor.receivetarget__n44wdg" >IActor.ReceiveTarget</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.syncactor.response__1nj5lt1" ></a>  SyncActor.Response Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Response message envelope</p>
+<pre><code class="csharp">public Envelope Response { get; private set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.message__m00bpk.html#t-net.adamec.lib.common.actor.message.envelope__5oxc3s" >net.adamec.lib.common.actor.message.Envelope</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.syncactor.responsetype__13oqz9h" ></a>  SyncActor.ResponseType Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Expected response type</p>
+<pre><code class="csharp">public Type ResponseType { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.syncactor.self__7tb7a6" ></a>  SyncActor.Self Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Actor reference to self</p>
+<pre><code class="csharp">public IActorRef Self { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.syncactor.waithandle__8yoz6j" ></a>  SyncActor.WaitHandle Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Wait handle used to signal that the response has arrived</p>
+<pre><code class="csharp">public AutoResetEvent WaitHandle { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent" class="link-external" target="_blank" >System.Threading.AutoResetEvent</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.syncactor.-ctor_net.adamec.lib.common.actor.actorsystem.iactorsystem-system.type-system.threading.autoresetevent___2ekqnh" ></a>  SyncActor.SyncActor(IActorSystem, Type, AutoResetEvent) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>CTOR</p>
+<pre><code class="csharp">public SyncActor(IActorSystem actorSystem, Type responseType, AutoResetEvent waitHandle)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >net.adamec.lib.common.actor.actorsystem.IActorSystem</a> <strong>actorSystem</strong></dt><dd>Actor system</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> <strong>responseType</strong></dt><dd>Expected type of the response</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent" class="link-external" target="_blank" >System.Threading.AutoResetEvent</a> <strong>waitHandle</strong></dt><dd>Wait handle used to signal that the response has arrived</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.syncactor.disposemanaged__1ldukpd" ></a>  SyncActor.DisposeManaged() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Deregisters itself from actor system</p>
+<pre><code class="csharp">protected override void DisposeManaged()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Overrides: <a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85" >BaseDisposable.DisposeManaged()</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.syncactor.receive_net.adamec.lib.common.actor.message.envelope___1adxu0d" ></a>  SyncActor.Receive(Envelope) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >SyncActor</a><br />
+Sources: actor\SyncActor.cs</small></p>
+<p>Message handler - waits for the message of required <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.responsetype__13oqz9h" >ResponseType</a> and when arrived, the message envelope is set to <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.response__1nj5lt1" >Response</a> and the <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.syncactor.waithandle__8yoz6j" >WaitHandle</a> is set to signal the blocked &quot;parent&quot; thread that the response has been received.</p>
+<pre><code class="csharp">protected virtual bool Receive(Envelope envelope)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.message__m00bpk.html#t-net.adamec.lib.common.actor.message.envelope__5oxc3s" >net.adamec.lib.common.actor.message.Envelope</a> <strong>envelope</strong></dt><dd>Incoming message envelope</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True when message processed (handled) otherwise false</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" ></a>  IActor Interface </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\IActor.cs</small></p>
+<p>Actor interface</p>
+<pre><code class="csharp">public interface IActor</code></pre>
+<p>Implemented by: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >net.adamec.lib.common.actor.actor.Actor</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >net.adamec.lib.common.actor.actor.SyncActor</a>, <a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.exchangeactor-3__1p1cfiq" >net.adamec.lib.common.actor.actor.exchanges.@base.ExchangeActor&lt;TSubscription,TSubscriptionMessage,TUnSubscriptionMessage&gt;</a>, <a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#t-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor__1q6rr7y" >net.adamec.lib.common.actor.actor.exchanges.single.SingleExchangeActor</a>, <a href="net.adamec.lib.common.actor.actor.exchanges.typed__1mtmrao.html#t-net.adamec.lib.common.actor.actor.exchanges.typed.routingkeyexchangeactor__1inw5x7" >net.adamec.lib.common.actor.actor.exchanges.typed.RoutingKeyExchangeActor</a>, <a href="net.adamec.lib.common.actor.actor.exchanges.typed__1mtmrao.html#t-net.adamec.lib.common.actor.actor.exchanges.typed.typedmultiexchangeactor__1rgmwat" >net.adamec.lib.common.actor.actor.exchanges.typed.TypedMultiExchangeActor</a>, <a href="net.adamec.lib.common.actor.actor.exchanges.typed__1mtmrao.html#t-net.adamec.lib.common.actor.actor.exchanges.typed.typedsingleexchangeactor__i752da" >net.adamec.lib.common.actor.actor.exchanges.typed.TypedSingleExchangeActor</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactor.canreceive__f9x86f" >CanReceive</a></td><td>public abstract</td><td>Returns true if the actor can receive messages. If false, the messages will not be dispatched to the actor (they will still be enqueued to actor&#39;s mailbox)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactor.receivetarget__n44wdg" >ReceiveTarget</a></td><td>public abstract</td><td>Current method processing the messages (to where the messages are dispatched to)</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.iactor.canreceive__f9x86f" ></a>  IActor.CanReceive Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >IActor</a><br />
+Sources: actor\IActor.cs</small></p>
+<p>Returns true if the actor can receive messages. If false, the messages will not be dispatched to the actor (they will still be enqueued to actor&#39;s mailbox)</p>
+<pre><code class="csharp">public abstract bool CanReceive { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.iactor.receivetarget__n44wdg" ></a>  IActor.ReceiveTarget Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >IActor</a><br />
+Sources: actor\IActor.cs</small></p>
+<p>Current method processing the messages (to where the messages are dispatched to)</p>
+<pre><code class="csharp">public abstract Receive ReceiveTarget { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.receive__1adwyjn" >net.adamec.lib.common.actor.actor.Receive</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.iactorref__63mbv" ></a>  IActorRef Interface </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Reference to actor</p>
+<pre><code class="csharp">public interface IActorRef</code></pre>
+<p>Implemented by: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefinternal__1l1obal" >net.adamec.lib.common.actor.actor.ActorRefInternal</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefnameonly__eu2rbh" >net.adamec.lib.common.actor.actor.ActorRefNameOnly</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefempty__c8py9n" >net.adamec.lib.common.actor.actor.ActorRefEmpty</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actorrefsystem__43zotr" >net.adamec.lib.common.actor.actor.ActorRefSystem</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.iactorref.name__1ukc8z4" >Name</a></td><td>public abstract</td><td>Name of the actor</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#m-net.adamec.lib.common.actor.actor.iactorref.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___1xlz161" >Tell(object, IActorRef, string)</a></td><td>public abstract</td><td>Asynchronously delivers a message to this <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >IActorRef</a> in a non-blocking fashion. Uses &quot;at most once&quot; delivery semantics.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actor.iactorref.name__1ukc8z4" ></a>  IActorRef.Name Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >IActorRef</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Name of the actor</p>
+<pre><code class="csharp">public abstract string Name { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.iactorref.tell_system.object-net.adamec.lib.common.actor.actor.iactorref-system.string___1xlz161" ></a>  IActorRef.Tell(object, IActorRef, string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >IActorRef</a><br />
+Sources: actor\IActorRef.cs</small></p>
+<p>Asynchronously delivers a message to this <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >IActorRef</a> in a non-blocking fashion. Uses &quot;at most once&quot; delivery semantics.</p>
+<pre><code class="csharp">public abstract void Tell(object message, IActorRef sender, string routingKey = null)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>The message to be sent to the target.</dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>The sender of this message. Defaults to <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#p-net.adamec.lib.common.actor.actor.actorrefs.empty__6f5cpu" >Empty</a> if left to <code class="csharp">null</code> .</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>routingKey</strong></dt><dd>Optional routing key - additional information that can be used for routing/processing the message</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.receive__1adwyjn" ></a>  Receive Delegate </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#n-net.adamec.lib.common.actor.actor__1ldg5ba" >net.adamec.lib.common.actor.actor</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\IActor.cs</small></p>
+<p>Delegate describing the recipient target (method processing the messages)</p>
+<pre><code class="csharp">public delegate bool Receive(Envelope envelope)</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>Recipient&#39;s method processing the messages</dd></dl></p>
+<strong>Delegate parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.message__m00bpk.html#t-net.adamec.lib.common.actor.message.envelope__5oxc3s" >net.adamec.lib.common.actor.message.Envelope</a> <strong>envelope</strong></dt><dd>Message envelope</dd></dl>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.delegate" class="link-external" target="_blank" >Delegate</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.multicastdelegate" class="link-external" target="_blank" >MulticastDelegate</a><br />
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.icloneable" class="link-external" target="_blank" >System.ICloneable</a>, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.iserializable" class="link-external" target="_blank" >System.Runtime.Serialization.ISerializable</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+</body></html>

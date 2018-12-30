@@ -16,7 +16,7 @@ namespace net.adamec.lib.common.actor.actorsystem
     /// </summary>
     public class ActorSystem : BaseDisposable, IActorSystem
     {
-        protected static ILogger Logger = CommonLogging.CreateLogger<ActorSystem>();
+        internal static ILogger Logger = CommonLogging.CreateLogger<ActorSystem>();
 
         /// <inheritdoc />
         /// <summary>

@@ -6,7 +6,6 @@ using net.adamec.lib.common.actor.actor;
 using net.adamec.lib.common.actor.message;
 using net.adamec.lib.common.logging;
 using net.adamec.lib.common.utils;
-using net.adamec.lib.common.extensions;
 
 namespace net.adamec.lib.common.actor.actorsystem
 {

@@ -6,8 +6,12 @@ The purpose is to provide the lightweight in-process asynchronous message based 
 Actor is a generally any component implementing `IActor` interface registered within the Actor System that is able to receive and process the messages sent from another Actor or even from outside world. The message processing is by design asynchronous where the messages for individual actors are processed in FIFO sequence, but the Actor System also provides the support for synchronous (Request-Reply) pattern. 
 
 ### Build ###
-The Commons library use the customized MS Build process in projects `build` and `build.tasks`. It's save to remove such projects from solution if needed.
+The library uses the customized MS Build process in projects `build` and `build.tasks`. It's safe to remove such projects from solution if needed.
 Details about the build process are described in [build documentation](build/readme.md).
+
+### Code Documentation ###
+The [code documentation](https://github.com/adamecr/Common.Actor/blob/master/doc/net.adamec.lib.common.actor.md) is generated during the customized build using [MarkupDoc](https://github.com/adamecr/MarkupDoc).
+
 
 ## Content ##
  - [High Level Architecture](#high-level-architecture)     
@@ -493,6 +497,6 @@ public class RoutingKeyExchangeActor : ExchangeActor<RoutingKeySubscription, Rou
 ```
 
 ## Tests ##
-Tests are implemented using [xUnit](#https://xunit.github.io/). As the message delivery is asynchronous and utilize several threads/thread pool, it's bit tricky for unit testing. The tests are checked for the functionality, so in case of problems (failed tests), it's recommended to check the output and adjust the delays/timeouts if needed.
+Tests are implemented using [xUnit](https://xunit.github.io/). As the message delivery is asynchronous and utilize several threads/thread pool, it's bit tricky for unit testing. The tests are checked for the functionality, so in case of problems (failed tests), it's recommended to check the output and adjust the delays/timeouts if needed.
 
 Note: adjust the `LogHome` variable in `nlog.config` of test project as you need.

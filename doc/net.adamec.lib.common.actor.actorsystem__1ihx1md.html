@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RAD Actor System Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js" ></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+body { color: #24292e;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size: 16px;line-height: 1.5; word-wrap: break-word;margin: 20px;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h4 {font-size: 1.25em;}
+h1, h2 {border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+h1, h2, h3,  h4{font-weight: 600;line-height: 1.25;margin-bottom: 16px;margin-top: 24px;}
+blockquote, ol, p, pre, table, ul {margin-bottom: 16px;margin-top: 0;}
+a{color: #0366d6;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a.link-external:hover{text-decoration: underline; color:gray;}
+pre code {border: 0;display: inline;line-height: inherit;margin: 2px;overflow: visible;padding: 5px ;word-wrap: normal;}
+pre>code {font-size: 100%;white-space: pre;word-break: normal;padding: 0px}
+code {border-radius: 3px;}
+code, pre {font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+pre {background-color: #f6f8fa;border-radius: 3px;font-size: 85%;line-height: 1.45;overflow: auto;padding: 0px;word-wrap: normal;}
+table {display: block;overflow: auto;width: 100%;border-collapse: collapse;border-spacing: 0;border-color: grey;}
+table tr {background-color: #fff;border-top: 1px solid #c6cbd1;}
+table tr:nth-child(2n) {background-color: #f6f8fa;}
+table td, table th {border: 1px solid #dfe2e5;padding: 6px 13px;}
+dl {display: grid; grid-template-columns: max-content auto; margin: 5px;}
+p+dl {margin-top: -15px;}
+dt {grid-column-start: 1;}
+dd {grid-column-start: 2;}
+</style>
+</head>
+<body>
+
+<h1>  RAD Actor System Documentation </h1>
+<h2>  <a id="n-net.adamec.lib.common.actor.actorsystem__1ihx1md" ></a>  net.adamec.lib.common.actor.actorsystem Namespace </h2>
+<h3>  Classes </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a></td><td>public</td><td>Implementation of actor system</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a></td><td>internal</td><td>Message dispatched used by <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.actorsystem__1osgm3w" >ActorSystem</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a></td><td>public</td><td>User defined configuration of <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a></td><td>internal</td><td>Scheduled message definition</td></tr>
+</table>
+<p> </p>
+<h3>  Interfaces </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a></td><td>public abstract</td><td>The Actor System published interface Provides access to options and system queues, supports the actor (de)registration, dispatcher management (start/stop) as well as message scheduling and synchronous (Request-Reply) messaging.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" ></a>  ActorSystem Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Implementation of actor system</p>
+<pre><code class="csharp">public class ActorSystem : BaseDisposable, IActorSystem</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >net.adamec.lib.common.utils.BaseDisposable</a><br />
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" class="link-external" target="_blank" >IDisposable</a>, <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >net.adamec.lib.common.actor.actorsystem.IActorSystem</a></p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystem.logger__1fhxf7" >Logger</a></td><td>internal static</td><td></td></tr>
+</table>
+<p> </p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystem.actorsbyref__b06x73" >ActorsByRef</a></td><td>private</td><td>Dictionary of actors by actor reference</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystem.deadletters__1p4w7em" >DeadLetters</a></td><td>public</td><td>Provides the access to dead letters queue</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystem.dispatcher__16sohre" >Dispatcher</a></td><td>private</td><td>Reference to dispatcher used by actor system</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystem.errormessagequeue__kecg1b" >ErrorMessageQueue</a></td><td>public</td><td>Provides the access to error messages queue</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystem.options__1qogkkh" >Options</a></td><td>public</td><td>Returns the reference to current <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a></td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.-ctor_net.adamec.lib.common.actor.actorsystem.actorsystemoptions___1wtfo99" >ActorSystem(ActorSystemOptions)</a></td><td>public</td><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a> constructor</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.ask_net.adamec.lib.common.actor.actor.iactorref-system.object-system.type-system.int32-system.boolean___sxd0yo" >Ask(IActorRef, object, Type, int, bool)</a></td><td>public</td><td>Sends a request <strong>message</strong> to <strong>recipient</strong> and waits for the response of required <strong>responseType</strong> .</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.ask--1_net.adamec.lib.common.actor.actor.iactorref-system.object-system.int32-system.boolean___2dxd0s" >Ask&lt;T&gt;(IActorRef, object, int, bool)</a></td><td>public</td><td>Sends a request <strong>message</strong> to <strong>recipient</strong> and waits for the response of type  .</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.cancelscheduledmessage_system.string___1w85qxn" >CancelScheduledMessage(string)</a></td><td>public</td><td>Cancels the scheduled message with given <strong>id</strong> - removes the message from list of the scheduled messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.cancelscheduledmessages_net.adamec.lib.common.actor.actor.iactorref-system.type___sfq920" >CancelScheduledMessages(IActorRef, Type)</a></td><td>public</td><td>Cancels all messages scheduled for <strong>recipient</strong> that are of given <strong>messageType</strong> - removes the messages from list of the scheduled messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.deregisteractor_net.adamec.lib.common.actor.actor.iactorref___1x86w27" >DeRegisterActor(IActorRef)</a></td><td>public</td><td>De-register actor identified by <strong>actorRef</strong> from the actor system If <strong>actorRef</strong> is not found within the actor system, WARN message is logged, but raises no error/exception</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.disposemanaged__162jz4w" >DisposeManaged()</a></td><td>protected</td><td>Stops and disposes the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystem.dispatcher__16sohre" >Dispatcher</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.getmailboxeswithmessages__1oiw8zq" >GetMailboxesWithMessages()</a></td><td>internal</td><td>Returns the list of the mailboxes (internal actor references) that have at least one message and the actor is not being already processed</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.registeractor_net.adamec.lib.common.actor.actor.iactor-system.string___o3h1j1" >RegisterActor(IActor, string)</a></td><td>public</td><td>Registers the <strong>actor</strong> to actor system. Name of the actor should be unique, but this is not checked. Each actor must register first to be able to receive the messages within the actor system.</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___1mc0hrz" >ScheduleMessage(IActorRef, IActorRef, DateTime, object)</a></td><td>public</td><td>Schedule one-time <strong>message</strong> to be sent to <strong>recipient</strong> at given date and time</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___kqn59b" >ScheduleMessage(IActorRef, IActorRef, TimeSpan, object)</a></td><td>public</td><td>Schedule periodic <strong>message</strong> to be sent to <strong>recipient</strong> each <strong>period</strong> .</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.start__zz3cpm" >Start()</a></td><td>public</td><td>Starts the message dispatcher (started by default within ActorSystem constructor)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.stop__v7scp2" >Stop()</a></td><td>public</td><td>Stops the message dispatcher (can be restarted using <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.start__zz3cpm" >Start()</a> method)</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actorsystem.actorsystem.logger__1fhxf7" ></a>  ActorSystem.Logger Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<pre><code class="csharp">internal static ILogger Logger</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >net.adamec.lib.common.logging.ILogger</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystem.actorsbyref__b06x73" ></a>  ActorSystem.ActorsByRef Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Dictionary of actors by actor reference</p>
+<pre><code class="csharp">private ConcurrentDictionary&lt;net.adamec.lib.common.actor.actor.IActorRef,net.adamec.lib.common.actor.actor.IActor&gt; ActorsByRef { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2" class="link-external" target="_blank" >System.Collections.Concurrent.ConcurrentDictionary&lt;net.adamec.lib.common.actor.actor.IActorRef,net.adamec.lib.common.actor.actor.IActor&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystem.deadletters__1p4w7em" ></a>  ActorSystem.DeadLetters Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Provides the access to dead letters queue</p>
+<pre><code class="csharp">public IMessageQueue DeadLetters { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.queue__1lh8qrc.html#t-net.adamec.lib.common.actor.queue.imessagequeue__1ndgarl" >net.adamec.lib.common.actor.queue.IMessageQueue</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.iactorsystem.deadletters__82oxzl" >IActorSystem.DeadLetters</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystem.dispatcher__16sohre" ></a>  ActorSystem.Dispatcher Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Reference to dispatcher used by actor system</p>
+<pre><code class="csharp">private ActorSystemDispatcher Dispatcher { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >net.adamec.lib.common.actor.actorsystem.ActorSystemDispatcher</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystem.errormessagequeue__kecg1b" ></a>  ActorSystem.ErrorMessageQueue Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Provides the access to error messages queue</p>
+<pre><code class="csharp">public IMessageQueue ErrorMessageQueue { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.queue__1lh8qrc.html#t-net.adamec.lib.common.actor.queue.imessagequeue__1ndgarl" >net.adamec.lib.common.actor.queue.IMessageQueue</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.iactorsystem.errormessagequeue__v9i6fy" >IActorSystem.ErrorMessageQueue</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystem.options__1qogkkh" ></a>  ActorSystem.Options Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Returns the reference to current <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a></p>
+<pre><code class="csharp">public ActorSystemOptions Options { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >net.adamec.lib.common.actor.actorsystem.ActorSystemOptions</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.iactorsystem.options__logleg" >IActorSystem.Options</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.-ctor_net.adamec.lib.common.actor.actorsystem.actorsystemoptions___1wtfo99" ></a>  ActorSystem.ActorSystem(ActorSystemOptions) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a> constructor</p>
+<pre><code class="csharp">public ActorSystem(ActorSystemOptions options)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >net.adamec.lib.common.actor.actorsystem.ActorSystemOptions</a> <strong>options</strong></dt><dd>Actor system configuration options</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.ask_net.adamec.lib.common.actor.actor.iactorref-system.object-system.type-system.int32-system.boolean___sxd0yo" ></a>  ActorSystem.Ask(IActorRef, object, Type, int, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Sends a request <strong>message</strong> to <strong>recipient</strong> and waits for the response of required <strong>responseType</strong> .</p>
+<pre><code class="csharp">public object Ask(IActorRef recipient, object message, Type responseType, int timeoutMilliseconds, bool throwTimeoutException = false)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Reference to recipient actor</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Request message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> <strong>responseType</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> of the message to wait for</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>timeoutMilliseconds</strong></dt><dd>Timeout for the response</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>throwTimeoutException</strong></dt><dd>If true, the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.timeoutexception" class="link-external" target="_blank" >System.TimeoutException</a> is raised, otherwise the default(T) response is returned</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a></dt><dd>The &quot;synchronous&quot; response</dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.ask_net.adamec.lib.common.actor.actor.iactorref-system.object-system.type-system.int32-system.boolean___14ecl67" >IActorSystem.Ask(IActorRef, object, Type, int, bool)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.ask--1_net.adamec.lib.common.actor.actor.iactorref-system.object-system.int32-system.boolean___2dxd0s" ></a>  ActorSystem.Ask&lt;T&gt;(IActorRef, object, int, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Sends a request <strong>message</strong> to <strong>recipient</strong> and waits for the response of type  .</p>
+<pre><code class="csharp">public ActorSystem.T Ask&lt;T&gt;(IActorRef recipient, object message, int timeoutMilliseconds, bool throwTimeoutException = false)</code></pre>
+<strong>Type parameters</strong><dl><dt><strong>T</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> of the message to wait for</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Reference to recipient actor</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Request message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>timeoutMilliseconds</strong></dt><dd>Timeout for the response</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>throwTimeoutException</strong></dt><dd>If true, the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.timeoutexception" class="link-external" target="_blank" >System.TimeoutException</a> is raised, otherwise the default(T) response is returned</dd></dl>
+<p><strong>Return value</strong><dl><dt>net.adamec.lib.common.actor.actorsystem.ActorSystem.T</dt><dd>The &quot;synchronous&quot; response</dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.ask--1_net.adamec.lib.common.actor.actor.iactorref-system.object-system.int32-system.boolean___1d7ni9h" >IActorSystem.Ask&lt;T&gt;(IActorRef, object, int, bool)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.cancelscheduledmessage_system.string___1w85qxn" ></a>  ActorSystem.CancelScheduledMessage(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Cancels the scheduled message with given <strong>id</strong> - removes the message from list of the scheduled messages</p>
+<pre><code class="csharp">public bool CancelScheduledMessage(string id)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>id</strong></dt><dd>Unique ID of the scheduled message. When the id is not found, it&#39;s just ignored.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True if the message has been found and canceled, false when the message has not been found</dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.cancelscheduledmessage_system.string___bluqps" >IActorSystem.CancelScheduledMessage(string)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.cancelscheduledmessages_net.adamec.lib.common.actor.actor.iactorref-system.type___sfq920" ></a>  ActorSystem.CancelScheduledMessages(IActorRef, Type) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Cancels all messages scheduled for <strong>recipient</strong> that are of given <strong>messageType</strong> - removes the messages from list of the scheduled messages</p>
+<pre><code class="csharp">public bool CancelScheduledMessages(IActorRef recipient, Type messageType)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>The recipient of the scheduled messages to be canceled.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> <strong>messageType</strong></dt><dd>The type of the scheduled messages to be canceled.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True if at least one message has been found and canceled, false when none has been found</dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.cancelscheduledmessages_net.adamec.lib.common.actor.actor.iactorref-system.type___c89uf5" >IActorSystem.CancelScheduledMessages(IActorRef, Type)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.deregisteractor_net.adamec.lib.common.actor.actor.iactorref___1x86w27" ></a>  ActorSystem.DeRegisterActor(IActorRef) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>De-register actor identified by <strong>actorRef</strong> from the actor system If <strong>actorRef</strong> is not found within the actor system, WARN message is logged, but raises no error/exception</p>
+<pre><code class="csharp">public void DeRegisterActor(IActorRef actorRef)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>actorRef</strong></dt><dd>Reference to actor to be de-registered</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.deregisteractor_net.adamec.lib.common.actor.actor.iactorref___102bphm" >IActorSystem.DeRegisterActor(IActorRef)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.disposemanaged__162jz4w" ></a>  ActorSystem.DisposeManaged() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Stops and disposes the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystem.dispatcher__16sohre" >Dispatcher</a></p>
+<pre><code class="csharp">protected override void DisposeManaged()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Overrides: <a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85" >BaseDisposable.DisposeManaged()</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.getmailboxeswithmessages__1oiw8zq" ></a>  ActorSystem.GetMailboxesWithMessages() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Returns the list of the mailboxes (internal actor references) that have at least one message and the actor is not being already processed</p>
+<pre><code class="csharp">internal List&lt;net.adamec.lib.common.actor.actor.ActorRefInternal&gt; GetMailboxesWithMessages()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.actor.actor.ActorRefInternal&gt;</a></dt><dd>List of mailboxes(internal actor references) having the messages for processing</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.registeractor_net.adamec.lib.common.actor.actor.iactor-system.string___o3h1j1" ></a>  ActorSystem.RegisterActor(IActor, string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Registers the <strong>actor</strong> to actor system. Name of the actor should be unique, but this is not checked. Each actor must register first to be able to receive the messages within the actor system.</p>
+<pre><code class="csharp">public IActorRef RegisterActor(IActor actor, string name)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >net.adamec.lib.common.actor.actor.IActor</a> <strong>actor</strong></dt><dd>Actor to be registered</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the actor. Name of the actor should be unique, but this is not checked. Name is mandatory and can&#39;t be empty</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></dt><dd>Actor reference to the registered actor</dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.registeractor_net.adamec.lib.common.actor.actor.iactor-system.string___c4sh8g" >IActorSystem.RegisterActor(IActor, string)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___1mc0hrz" ></a>  ActorSystem.ScheduleMessage(IActorRef, IActorRef, DateTime, object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Schedule one-time <strong>message</strong> to be sent to <strong>recipient</strong> at given date and time</p>
+<pre><code class="csharp">public string ScheduleMessage(IActorRef sender, IActorRef recipient, DateTime nextFire, object message)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Optional information about the sender, usually used by <strong>recipient</strong> to respond to the <strong>message</strong></dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Recipient of the message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >DateTime</a> <strong>nextFire</strong></dt><dd>Date and time after which the message is enqueued to the <strong>recipient</strong> queue</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Message to be sent to the <strong>recipient</strong></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>Unique ID of scheduled message</dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___1o3fnac" >IActorSystem.ScheduleMessage(IActorRef, IActorRef, DateTime, object)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___kqn59b" ></a>  ActorSystem.ScheduleMessage(IActorRef, IActorRef, TimeSpan, object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Schedule periodic <strong>message</strong> to be sent to <strong>recipient</strong> each <strong>period</strong> .</p>
+<pre><code class="csharp">public string ScheduleMessage(IActorRef sender, IActorRef recipient, TimeSpan period, object message)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Optional information about the sender, usually used by <strong>recipient</strong> to respond to the <strong>message</strong></dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Recipient of the message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.timespan" class="link-external" target="_blank" >System.TimeSpan</a> <strong>period</strong></dt><dd>Period after which the message is periodically enqueued to the <strong>recipient</strong> queue</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Message to be periodically sent to the <strong>recipient</strong></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>Unique ID of scheduled message</dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___og1m84" >IActorSystem.ScheduleMessage(IActorRef, IActorRef, TimeSpan, object)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.start__zz3cpm" ></a>  ActorSystem.Start() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Starts the message dispatcher (started by default within ActorSystem constructor)</p>
+<pre><code class="csharp">public void Start()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.start__clajz5" >IActorSystem.Start()</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystem.stop__v7scp2" ></a>  ActorSystem.Stop() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a><br />
+Sources: actorsystem\ActorSystem.cs</small></p>
+<p>Stops the message dispatcher (can be restarted using <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystem.start__zz3cpm" >Start()</a> method)</p>
+<pre><code class="csharp">public void Stop()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.stop__dly8m5" >IActorSystem.Stop()</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" ></a>  ActorSystemDispatcher Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Message dispatched used by <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.actorsystem__1osgm3w" >ActorSystem</a></p>
+<pre><code class="csharp">internal class ActorSystemDispatcher : BaseDisposable</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >net.adamec.lib.common.utils.BaseDisposable</a><br />
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" class="link-external" target="_blank" >IDisposable</a></p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.isactive__1g6w74o" >isActive</a></td><td>private</td><td></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.logger__1opp49m" >Logger</a></td><td>protected static</td><td></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.messagelogger__9fz30j" >MessageLogger</a></td><td>protected static</td><td>Message logger</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.scheduledmessageslock__19elh26" >scheduledMessagesLock</a></td><td>private</td><td></td></tr>
+</table>
+<p> </p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.actorsystem__1osgm3w" >ActorSystem</a></td><td>private</td><td></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.executorthread__1a9snen" >ExecutorThread</a></td><td>private</td><td>Dispatcher executor thread</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.isactive__9h4ytm" >IsActive</a></td><td>public</td><td>Flag whether the dispatcher is active (dispatching messages)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.options__glvhoa" >Options</a></td><td>protected</td><td>Actor System options</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.scheduledmessages__61sfpr" >ScheduledMessages</a></td><td>private</td><td></td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.-ctor_net.adamec.lib.common.actor.actorsystem.actorsystem___bl3uhi" >ActorSystemDispatcher(ActorSystem)</a></td><td>public</td><td>Initialize dispatcher</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.cancelscheduledmessage_system.string___1r5af14" >CancelScheduledMessage(string)</a></td><td>internal</td><td>Cancels the scheduled message with given <strong>id</strong> - removes the message from list of the scheduled messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.cancelscheduledmessages_net.adamec.lib.common.actor.actor.iactorref-system.type___6bdh5j" >CancelScheduledMessages(IActorRef, Type)</a></td><td>internal</td><td>Cancels all messages scheduled for <strong>recipient</strong> that are of given <strong>messageType</strong> - removes the messages from list of the scheduled messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.disposemanaged__121xst9" >DisposeManaged()</a></td><td>protected</td><td>Stops the dispatched when disposing</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.execute_system.object___q5nu8z" >Execute(object)</a></td><td>private</td><td>Main dispatcher loop (runs within the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.executorthread__1a9snen" >ExecutorThread</a> ) The loop is active while <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.isactive__1g6w74o" >isActive</a> is set to true, so setting <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.isactive__1g6w74o" >isActive</a> to false forces the loop to exit Each run of the loop enqueue the due scheduled messages (if any) and process mailboxes (actors) with any pending messages. Actor (actor reference) is locked for processing and the task is scheduled in thread pool to process the actor&#39;s queue. The actor remains locked until the task is not finished, so it&#39;s not picked up by executor again during the processing</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.getscheduledmessagesdue__5eu7es" >GetScheduledMessagesDue()</a></td><td>private</td><td>Gets the list of scheduled messages that should be enqueued (are due) When the scheduled message is periodic, the next fire time is calculated and a new instance of scheduled message is added to to schedule</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.processactorqueue_system.object___1ifalnd" >ProcessActorQueue(object)</a></td><td>private</td><td>Main actor queue processor - scheduled by executor within the thread pool for each eligible actor (actor ref) Processes the batch of the messages for given actor. The messages are being processed sequentially in FIFO order within the loop with following constraints - there are still messages in actor&#39;s queue - actor can receive the messages - the batch size (number of messages for single actor processed in one cycle) has not been reached - dispatcher is not stopped The messages are sent to current actor receive target</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___6k32uw" >ScheduleMessage(IActorRef, IActorRef, DateTime, object)</a></td><td>internal</td><td>Schedule one-time <strong>message</strong> to be sent to <strong>recipient</strong> at given date and time Creates the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a> instance based on the parameters and let it add to the internal list of the scheduled messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___vt99rw" >ScheduleMessage(IActorRef, IActorRef, TimeSpan, object)</a></td><td>internal</td><td>Schedule periodic <strong>message</strong> to be sent to <strong>recipient</strong> each <strong>period</strong> . Creates the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a> instance based on the parameters and let it add to the internal list of the scheduled messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.schedulemessage_net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo___1xwfair" >ScheduleMessage(ScheduledMessageInfo)</a></td><td>private</td><td>Get&#39;s the given <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a> and adds it to internal list of scheduled messages.</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.start__2g0p6j" >Start()</a></td><td>public</td><td>Starts the dispatcher Creates the executor thread and starts processing the messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.stop__8jn5gr" >Stop()</a></td><td>public</td><td>Stops the dispatcher Finish current processing and &quot;close&quot; the executor thread</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.isactive__1g6w74o" ></a>  ActorSystemDispatcher.isActive Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<pre><code class="csharp">private volatile bool isActive</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.logger__1opp49m" ></a>  ActorSystemDispatcher.Logger Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<pre><code class="csharp">protected static ILogger Logger</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >net.adamec.lib.common.logging.ILogger</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.messagelogger__9fz30j" ></a>  ActorSystemDispatcher.MessageLogger Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Message logger</p>
+<pre><code class="csharp">protected static ILogger MessageLogger</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >net.adamec.lib.common.logging.ILogger</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.scheduledmessageslock__19elh26" ></a>  ActorSystemDispatcher.scheduledMessagesLock Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<pre><code class="csharp">private readonly object scheduledMessagesLock</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.actorsystem__1osgm3w" ></a>  ActorSystemDispatcher.ActorSystem Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<pre><code class="csharp">private ActorSystem ActorSystem { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >net.adamec.lib.common.actor.actorsystem.ActorSystem</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.executorthread__1a9snen" ></a>  ActorSystemDispatcher.ExecutorThread Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Dispatcher executor thread</p>
+<pre><code class="csharp">private Thread ExecutorThread { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.thread" class="link-external" target="_blank" >System.Threading.Thread</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.isactive__9h4ytm" ></a>  ActorSystemDispatcher.IsActive Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Flag whether the dispatcher is active (dispatching messages)</p>
+<pre><code class="csharp">public bool IsActive { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.options__glvhoa" ></a>  ActorSystemDispatcher.Options Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Actor System options</p>
+<pre><code class="csharp">protected ActorSystemOptions Options { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >net.adamec.lib.common.actor.actorsystem.ActorSystemOptions</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.scheduledmessages__61sfpr" ></a>  ActorSystemDispatcher.ScheduledMessages Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<pre><code class="csharp">private List&lt;net.adamec.lib.common.actor.actorsystem.ScheduledMessageInfo&gt; ScheduledMessages { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.actor.actorsystem.ScheduledMessageInfo&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.-ctor_net.adamec.lib.common.actor.actorsystem.actorsystem___bl3uhi" ></a>  ActorSystemDispatcher.ActorSystemDispatcher(ActorSystem) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Initialize dispatcher</p>
+<pre><code class="csharp">public ActorSystemDispatcher(ActorSystem actorSystem)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >net.adamec.lib.common.actor.actorsystem.ActorSystem</a> <strong>actorSystem</strong></dt><dd>Actor System the dispatcher belongs to</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.cancelscheduledmessage_system.string___1r5af14" ></a>  ActorSystemDispatcher.CancelScheduledMessage(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Cancels the scheduled message with given <strong>id</strong> - removes the message from list of the scheduled messages</p>
+<pre><code class="csharp">internal bool CancelScheduledMessage(string id)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>id</strong></dt><dd>Unique ID of the scheduled message. When the id is not found, it&#39;s just ignored.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True if the message has been found and canceled, false when the message has not been found</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.cancelscheduledmessages_net.adamec.lib.common.actor.actor.iactorref-system.type___6bdh5j" ></a>  ActorSystemDispatcher.CancelScheduledMessages(IActorRef, Type) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Cancels all messages scheduled for <strong>recipient</strong> that are of given <strong>messageType</strong> - removes the messages from list of the scheduled messages</p>
+<pre><code class="csharp">internal bool CancelScheduledMessages(IActorRef recipient, Type messageType)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>The recipient of the scheduled messages to be canceled.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> <strong>messageType</strong></dt><dd>The type of the scheduled messages to be canceled.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True if at least one message has been found and canceled, false when none has been found</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.disposemanaged__121xst9" ></a>  ActorSystemDispatcher.DisposeManaged() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Stops the dispatched when disposing</p>
+<pre><code class="csharp">protected override void DisposeManaged()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Overrides: <a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85" >BaseDisposable.DisposeManaged()</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.execute_system.object___q5nu8z" ></a>  ActorSystemDispatcher.Execute(object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Main dispatcher loop (runs within the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.executorthread__1a9snen" >ExecutorThread</a> ) The loop is active while <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.isactive__1g6w74o" >isActive</a> is set to true, so setting <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#f-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.isactive__1g6w74o" >isActive</a> to false forces the loop to exit Each run of the loop enqueue the due scheduled messages (if any) and process mailboxes (actors) with any pending messages. Actor (actor reference) is locked for processing and the task is scheduled in thread pool to process the actor&#39;s queue. The actor remains locked until the task is not finished, so it&#39;s not picked up by executor again during the processing</p>
+<pre><code class="csharp">private void Execute(object actorSystemObj)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>actorSystemObj</strong></dt><dd>Actor System</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.getscheduledmessagesdue__5eu7es" ></a>  ActorSystemDispatcher.GetScheduledMessagesDue() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Gets the list of scheduled messages that should be enqueued (are due) When the scheduled message is periodic, the next fire time is calculated and a new instance of scheduled message is added to to schedule</p>
+<pre><code class="csharp">private IEnumerable&lt;net.adamec.lib.common.actor.actorsystem.ScheduledMessageInfo&gt; GetScheduledMessagesDue()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" class="link-external" target="_blank" >IEnumerable&lt;net.adamec.lib.common.actor.actorsystem.ScheduledMessageInfo&gt;</a></dt><dd>The list of scheduled messages that to be enqueued</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.processactorqueue_system.object___1ifalnd" ></a>  ActorSystemDispatcher.ProcessActorQueue(object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Main actor queue processor - scheduled by executor within the thread pool for each eligible actor (actor ref) Processes the batch of the messages for given actor. The messages are being processed sequentially in FIFO order within the loop with following constraints - there are still messages in actor&#39;s queue - actor can receive the messages - the batch size (number of messages for single actor processed in one cycle) has not been reached - dispatcher is not stopped The messages are sent to current actor receive target</p>
+<pre><code class="csharp">private void ProcessActorQueue(object actorRef)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>actorRef</strong></dt><dd>Actor to process</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___6k32uw" ></a>  ActorSystemDispatcher.ScheduleMessage(IActorRef, IActorRef, DateTime, object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Schedule one-time <strong>message</strong> to be sent to <strong>recipient</strong> at given date and time Creates the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a> instance based on the parameters and let it add to the internal list of the scheduled messages</p>
+<pre><code class="csharp">internal string ScheduleMessage(IActorRef sender, IActorRef recipient, DateTime nextFire, object message)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Optional information about the sender, usually used by <strong>recipient</strong> to respond to the <strong>message</strong></dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Recipient of the message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >DateTime</a> <strong>nextFire</strong></dt><dd>Date and time after which the message is enqueued to the <strong>recipient</strong> queue</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Message to be sent to the <strong>recipient</strong></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>Unique ID of scheduled message</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___vt99rw" ></a>  ActorSystemDispatcher.ScheduleMessage(IActorRef, IActorRef, TimeSpan, object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Schedule periodic <strong>message</strong> to be sent to <strong>recipient</strong> each <strong>period</strong> . Creates the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a> instance based on the parameters and let it add to the internal list of the scheduled messages</p>
+<pre><code class="csharp">internal string ScheduleMessage(IActorRef sender, IActorRef recipient, TimeSpan period, object message)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Optional information about the sender, usually used by <strong>recipient</strong> to respond to the <strong>message</strong></dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Recipient of the message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.timespan" class="link-external" target="_blank" >System.TimeSpan</a> <strong>period</strong></dt><dd>Period after which the message is enqueued to the <strong>recipient</strong> queue</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Message to be periodically sent to the <strong>recipient</strong></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>Unique ID of scheduled message</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.schedulemessage_net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo___1xwfair" ></a>  ActorSystemDispatcher.ScheduleMessage(ScheduledMessageInfo) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Get&#39;s the given <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a> and adds it to internal list of scheduled messages.</p>
+<pre><code class="csharp">private void ScheduleMessage(ScheduledMessageInfo msg)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >net.adamec.lib.common.actor.actorsystem.ScheduledMessageInfo</a> <strong>msg</strong></dt><dd>Scheduled message description to be added to the internal list of scheduled messages.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.start__2g0p6j" ></a>  ActorSystemDispatcher.Start() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Starts the dispatcher Creates the executor thread and starts processing the messages</p>
+<pre><code class="csharp">public void Start()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher.stop__8jn5gr" ></a>  ActorSystemDispatcher.Stop() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >ActorSystemDispatcher</a><br />
+Sources: actorsystem\ActorSystemDispatcher.cs</small></p>
+<p>Stops the dispatcher Finish current processing and &quot;close&quot; the executor thread</p>
+<pre><code class="csharp">public void Stop()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" ></a>  ActorSystemOptions Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actorsystem\ActorSystemOptions.cs</small></p>
+<p>User defined configuration of <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >ActorSystem</a></p>
+<pre><code class="csharp">public class ActorSystemOptions</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.default__12pheto" >Default</a></td><td>public static</td><td>Returns the default <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.logdispatchmessages__b8w2y1" >LogDispatchMessages</a></td><td>public</td><td>If enabled, logs each message before dispatched to actor with DEBUG level (default false)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.logenqueuedmessages__1on1j1f" >LogEnqueuedMessages</a></td><td>public</td><td>If enabled, logs each enqueued message with DEBUG level (default false)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.lognothandledmessages__982jd6" >LogNotHandledMessages</a></td><td>public</td><td>If enabled, logs each not handled message with WARN level (default false)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.maxdispatchmessagesinbatch__47yvmi" >MaxDispatchMessagesInBatch</a></td><td>public</td><td>Defines the maximum number of messages send for processing to single actor during one cycle of ActorDispatcher executor  (default 10)</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.-cctor__coeb0w" >ActorSystemOptions()</a></td><td>private static</td><td>Static CTOR - initialize default options instance</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.default__12pheto" ></a>  ActorSystemOptions.Default Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a><br />
+Sources: actorsystem\ActorSystemOptions.cs</small></p>
+<p>Returns the default <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a></p>
+<pre><code class="csharp">public static ActorSystemOptions Default { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >net.adamec.lib.common.actor.actorsystem.ActorSystemOptions</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.logdispatchmessages__b8w2y1" ></a>  ActorSystemOptions.LogDispatchMessages Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a><br />
+Sources: actorsystem\ActorSystemOptions.cs</small></p>
+<p>If enabled, logs each message before dispatched to actor with DEBUG level (default false)</p>
+<pre><code class="csharp">public bool LogDispatchMessages { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.logenqueuedmessages__1on1j1f" ></a>  ActorSystemOptions.LogEnqueuedMessages Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a><br />
+Sources: actorsystem\ActorSystemOptions.cs</small></p>
+<p>If enabled, logs each enqueued message with DEBUG level (default false)</p>
+<pre><code class="csharp">public bool LogEnqueuedMessages { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.lognothandledmessages__982jd6" ></a>  ActorSystemOptions.LogNotHandledMessages Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a><br />
+Sources: actorsystem\ActorSystemOptions.cs</small></p>
+<p>If enabled, logs each not handled message with WARN level (default false)</p>
+<pre><code class="csharp">public bool LogNotHandledMessages { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.maxdispatchmessagesinbatch__47yvmi" ></a>  ActorSystemOptions.MaxDispatchMessagesInBatch Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a><br />
+Sources: actorsystem\ActorSystemOptions.cs</small></p>
+<p>Defines the maximum number of messages send for processing to single actor during one cycle of ActorDispatcher executor  (default 10)</p>
+<pre><code class="csharp">public int MaxDispatchMessagesInBatch { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.actorsystemoptions.-cctor__coeb0w" ></a>  ActorSystemOptions.ActorSystemOptions() Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a><br />
+Sources: actorsystem\ActorSystemOptions.cs</small></p>
+<p>Static CTOR - initialize default options instance</p>
+<pre><code class="csharp">private static ActorSystemOptions()</code></pre>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" ></a>  ScheduledMessageInfo Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>Scheduled message definition</p>
+<pre><code class="csharp">internal class ScheduledMessageInfo</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.id__d1ho0y" >Id</a></td><td>internal</td><td>Unique ID of scheduled message</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.message__8wrme2" >Message</a></td><td>internal</td><td>Message to be (periodically) sent to the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.nextfire__16ekkf2" >NextFire</a></td><td>internal</td><td>Date and Time after which the message is enqueued to the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a> queue</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.period__v8c71e" >Period</a></td><td>internal</td><td>Period after which the message is periodically enqueued to the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a> queue. Null for non-periodic messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a></td><td>internal</td><td>Recipient of the message</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.sender__1m7ejeu" >Sender</a></td><td>internal</td><td>Optional information about the sender, usually used by <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a> to respond to the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.message__8wrme2" >Message</a></td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.-ctor_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___d10rbc" >ScheduledMessageInfo(IActorRef, IActorRef, DateTime, object)</a></td><td>internal</td><td>CTOR for one-time scheduled message info</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.-ctor_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___w2q5fc" >ScheduledMessageInfo(IActorRef, IActorRef, TimeSpan, object)</a></td><td>internal</td><td>CTOR for periodic scheduled message info</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.-ctor_net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo___1cbqekh" >ScheduledMessageInfo(ScheduledMessageInfo)</a></td><td>internal</td><td>CTOR for the new instance of scheduled message definition for existing periodic scheduled message Used when creating the definition of each new run of the periodic schedule. Copies the information from current definition and preservers the ID</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.id__d1ho0y" ></a>  ScheduledMessageInfo.Id Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>Unique ID of scheduled message</p>
+<pre><code class="csharp">internal string Id { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.message__8wrme2" ></a>  ScheduledMessageInfo.Message Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>Message to be (periodically) sent to the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a></p>
+<pre><code class="csharp">internal object Message { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.nextfire__16ekkf2" ></a>  ScheduledMessageInfo.NextFire Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>Date and Time after which the message is enqueued to the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a> queue</p>
+<pre><code class="csharp">internal DateTime NextFire { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >DateTime</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.period__v8c71e" ></a>  ScheduledMessageInfo.Period Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>Period after which the message is periodically enqueued to the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a> queue. Null for non-periodic messages</p>
+<pre><code class="csharp">internal System.TimeSpan? Period { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.nullable-1" class="link-external" target="_blank" >System.TimeSpan?</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" ></a>  ScheduledMessageInfo.Recipient Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>Recipient of the message</p>
+<pre><code class="csharp">internal IActorRef Recipient { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.sender__1m7ejeu" ></a>  ScheduledMessageInfo.Sender Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>Optional information about the sender, usually used by <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.recipient__9cyy92" >Recipient</a> to respond to the <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.message__8wrme2" >Message</a></p>
+<pre><code class="csharp">internal IActorRef Sender { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.-ctor_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___d10rbc" ></a>  ScheduledMessageInfo.ScheduledMessageInfo(IActorRef, IActorRef, DateTime, object) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>CTOR for one-time scheduled message info</p>
+<pre><code class="csharp">internal ScheduledMessageInfo(IActorRef sender, IActorRef recipient, DateTime nextFire, object message)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Optional information about the sender, usually used by <strong>recipient</strong> to respond to the <strong>message</strong></dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Recipient of the message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >DateTime</a> <strong>nextFire</strong></dt><dd>Date and time after which the message is enqueued to the <strong>recipient</strong> queue</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Message to be sent to the <strong>recipient</strong></dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.-ctor_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___w2q5fc" ></a>  ScheduledMessageInfo.ScheduledMessageInfo(IActorRef, IActorRef, TimeSpan, object) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>CTOR for periodic scheduled message info</p>
+<pre><code class="csharp">internal ScheduledMessageInfo(IActorRef sender, IActorRef recipient, TimeSpan period, object message)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Optional information about the sender, usually used by <strong>recipient</strong> to respond to the <strong>message</strong></dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Recipient of the message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.timespan" class="link-external" target="_blank" >System.TimeSpan</a> <strong>period</strong></dt><dd>Period after which the message is enqueued to the <strong>recipient</strong> queue</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Message to be periodically sent to the <strong>recipient</strong></dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo.-ctor_net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo___1cbqekh" ></a>  ScheduledMessageInfo.ScheduledMessageInfo(ScheduledMessageInfo) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >ScheduledMessageInfo</a><br />
+Sources: actorsystem\ScheduledMessageInfo.cs</small></p>
+<p>CTOR for the new instance of scheduled message definition for existing periodic scheduled message Used when creating the definition of each new run of the periodic schedule. Copies the information from current definition and preservers the ID</p>
+<pre><code class="csharp">internal ScheduledMessageInfo(ScheduledMessageInfo existingPeriodicScheduledMessageInfo)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.scheduledmessageinfo__ifn4s5" >net.adamec.lib.common.actor.actorsystem.ScheduledMessageInfo</a> <strong>existingPeriodicScheduledMessageInfo</strong></dt><dd></dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" ></a>  IActorSystem Interface </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>The Actor System published interface Provides access to options and system queues, supports the actor (de)registration, dispatcher management (start/stop) as well as message scheduling and synchronous (Request-Reply) messaging.</p>
+<pre><code class="csharp">public interface IActorSystem</code></pre>
+<p>Implemented by: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >net.adamec.lib.common.actor.actorsystem.ActorSystem</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.iactorsystem.deadletters__82oxzl" >DeadLetters</a></td><td>public abstract</td><td>Provides the access to dead letters queue</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.iactorsystem.errormessagequeue__v9i6fy" >ErrorMessageQueue</a></td><td>public abstract</td><td>Provides the access to error messages queue</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#p-net.adamec.lib.common.actor.actorsystem.iactorsystem.options__logleg" >Options</a></td><td>public abstract</td><td>Returns the reference to current <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a></td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.ask_net.adamec.lib.common.actor.actor.iactorref-system.object-system.type-system.int32-system.boolean___14ecl67" >Ask(IActorRef, object, Type, int, bool)</a></td><td>public abstract</td><td>Sends a request <strong>message</strong> to <strong>recipient</strong> and waits for the response of required <strong>responseType</strong> .</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.ask--1_net.adamec.lib.common.actor.actor.iactorref-system.object-system.int32-system.boolean___1d7ni9h" >Ask&lt;T&gt;(IActorRef, object, int, bool)</a></td><td>public abstract</td><td>Sends a request <strong>message</strong> to <strong>recipient</strong> and waits for the response of type  .</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.cancelscheduledmessage_system.string___bluqps" >CancelScheduledMessage(string)</a></td><td>public abstract</td><td>Cancels the scheduled message with given <strong>id</strong> - removes the message from list of the scheduled messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.cancelscheduledmessages_net.adamec.lib.common.actor.actor.iactorref-system.type___c89uf5" >CancelScheduledMessages(IActorRef, Type)</a></td><td>public abstract</td><td>Cancels all messages scheduled for <strong>recipient</strong> that are of given <strong>messageType</strong> - removes the messages from list of the scheduled messages</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.deregisteractor_net.adamec.lib.common.actor.actor.iactorref___102bphm" >DeRegisterActor(IActorRef)</a></td><td>public abstract</td><td>De-register actor identified by <strong>actorRef</strong> from the actor system If <strong>actorRef</strong> is not found within the actor system, WARN message is logged, but raises no error/exception</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.registeractor_net.adamec.lib.common.actor.actor.iactor-system.string___c4sh8g" >RegisterActor(IActor, string)</a></td><td>public abstract</td><td>Registers the <strong>actor</strong> to actor system. Name of the actor should be unique, but this is not checked. Each actor must register first to be able to receive the messages within the actor system.</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___1o3fnac" >ScheduleMessage(IActorRef, IActorRef, DateTime, object)</a></td><td>public abstract</td><td>Schedule one-time <strong>message</strong> to be sent to <strong>recipient</strong> at given date and time</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___og1m84" >ScheduleMessage(IActorRef, IActorRef, TimeSpan, object)</a></td><td>public abstract</td><td>Schedule periodic <strong>message</strong> to be sent to <strong>recipient</strong> each <strong>period</strong> .</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.start__clajz5" >Start()</a></td><td>public abstract</td><td>Starts the message dispatcher (started by default within ActorSystem constructor)</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.stop__dly8m5" >Stop()</a></td><td>public abstract</td><td>Stops the message dispatcher (can be restarted using <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.start__clajz5" >Start()</a> method)</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.iactorsystem.deadletters__82oxzl" ></a>  IActorSystem.DeadLetters Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Provides the access to dead letters queue</p>
+<pre><code class="csharp">public abstract IMessageQueue DeadLetters { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.queue__1lh8qrc.html#t-net.adamec.lib.common.actor.queue.imessagequeue__1ndgarl" >net.adamec.lib.common.actor.queue.IMessageQueue</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.iactorsystem.errormessagequeue__v9i6fy" ></a>  IActorSystem.ErrorMessageQueue Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Provides the access to error messages queue</p>
+<pre><code class="csharp">public abstract IMessageQueue ErrorMessageQueue { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.queue__1lh8qrc.html#t-net.adamec.lib.common.actor.queue.imessagequeue__1ndgarl" >net.adamec.lib.common.actor.queue.IMessageQueue</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.actor.actorsystem.iactorsystem.options__logleg" ></a>  IActorSystem.Options Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Returns the reference to current <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >ActorSystemOptions</a></p>
+<pre><code class="csharp">public abstract ActorSystemOptions Options { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemoptions__1e8lf7j" >net.adamec.lib.common.actor.actorsystem.ActorSystemOptions</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.ask_net.adamec.lib.common.actor.actor.iactorref-system.object-system.type-system.int32-system.boolean___14ecl67" ></a>  IActorSystem.Ask(IActorRef, object, Type, int, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Sends a request <strong>message</strong> to <strong>recipient</strong> and waits for the response of required <strong>responseType</strong> .</p>
+<pre><code class="csharp">public abstract object Ask(IActorRef recipient, object message, Type responseType, int timeoutMilliseconds, bool throwTimeoutException = false)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Reference to recipient actor</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Request message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> <strong>responseType</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> of the message to wait for</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>timeoutMilliseconds</strong></dt><dd>Timeout for the response</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>throwTimeoutException</strong></dt><dd>If true, the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.timeoutexception" class="link-external" target="_blank" >System.TimeoutException</a> is raised, otherwise the default(T) response is returned</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a></dt><dd>The &quot;synchronous&quot; response</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.ask--1_net.adamec.lib.common.actor.actor.iactorref-system.object-system.int32-system.boolean___1d7ni9h" ></a>  IActorSystem.Ask&lt;T&gt;(IActorRef, object, int, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Sends a request <strong>message</strong> to <strong>recipient</strong> and waits for the response of type  .</p>
+<pre><code class="csharp">public abstract IActorSystem.T Ask&lt;T&gt;(IActorRef recipient, object message, int timeoutMilliseconds, bool throwTimeoutException = false)</code></pre>
+<strong>Type parameters</strong><dl><dt><strong>T</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> of the message to wait for</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Reference to recipient actor</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Request message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>timeoutMilliseconds</strong></dt><dd>Timeout for the response</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>throwTimeoutException</strong></dt><dd>If true, the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.timeoutexception" class="link-external" target="_blank" >System.TimeoutException</a> is raised, otherwise the default(T) response is returned</dd></dl>
+<p><strong>Return value</strong><dl><dt>net.adamec.lib.common.actor.actorsystem.IActorSystem.T</dt><dd>The &quot;synchronous&quot; response</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.cancelscheduledmessage_system.string___bluqps" ></a>  IActorSystem.CancelScheduledMessage(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Cancels the scheduled message with given <strong>id</strong> - removes the message from list of the scheduled messages</p>
+<pre><code class="csharp">public abstract bool CancelScheduledMessage(string id)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>id</strong></dt><dd>Unique ID of the scheduled message. When the id is not found, it&#39;s just ignored.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True if the message has been found and canceled, false when the message has not been found</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.cancelscheduledmessages_net.adamec.lib.common.actor.actor.iactorref-system.type___c89uf5" ></a>  IActorSystem.CancelScheduledMessages(IActorRef, Type) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Cancels all messages scheduled for <strong>recipient</strong> that are of given <strong>messageType</strong> - removes the messages from list of the scheduled messages</p>
+<pre><code class="csharp">public abstract bool CancelScheduledMessages(IActorRef recipient, Type messageType)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>The recipient of the scheduled messages to be canceled.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> <strong>messageType</strong></dt><dd>The type of the scheduled messages to be canceled.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True if at least one message has been found and canceled, false when none has been found</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.deregisteractor_net.adamec.lib.common.actor.actor.iactorref___102bphm" ></a>  IActorSystem.DeRegisterActor(IActorRef) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>De-register actor identified by <strong>actorRef</strong> from the actor system If <strong>actorRef</strong> is not found within the actor system, WARN message is logged, but raises no error/exception</p>
+<pre><code class="csharp">public abstract void DeRegisterActor(IActorRef actorRef)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>actorRef</strong></dt><dd>Reference to actor to be de-registered</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.registeractor_net.adamec.lib.common.actor.actor.iactor-system.string___c4sh8g" ></a>  IActorSystem.RegisterActor(IActor, string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Registers the <strong>actor</strong> to actor system. Name of the actor should be unique, but this is not checked. Each actor must register first to be able to receive the messages within the actor system.</p>
+<pre><code class="csharp">public abstract IActorRef RegisterActor(IActor actor, string name)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >net.adamec.lib.common.actor.actor.IActor</a> <strong>actor</strong></dt><dd>Actor to be registered</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the actor. Name of the actor should be unique, but this is not checked. Name is mandatory and can&#39;t be empty</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a></dt><dd>Actor reference to the registered actor</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.datetime-system.object___1o3fnac" ></a>  IActorSystem.ScheduleMessage(IActorRef, IActorRef, DateTime, object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Schedule one-time <strong>message</strong> to be sent to <strong>recipient</strong> at given date and time</p>
+<pre><code class="csharp">public abstract string ScheduleMessage(IActorRef sender, IActorRef recipient, DateTime nextFire, object message)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Optional information about the sender, usually used by <strong>recipient</strong> to respond to the <strong>message</strong></dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Recipient of the message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >DateTime</a> <strong>nextFire</strong></dt><dd>Date and time after which the message is enqueued to the <strong>recipient</strong> queue</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Message to be sent to the <strong>recipient</strong></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>Unique ID of scheduled message</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.schedulemessage_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.iactorref-system.timespan-system.object___og1m84" ></a>  IActorSystem.ScheduleMessage(IActorRef, IActorRef, TimeSpan, object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Schedule periodic <strong>message</strong> to be sent to <strong>recipient</strong> each <strong>period</strong> .</p>
+<pre><code class="csharp">public abstract string ScheduleMessage(IActorRef sender, IActorRef recipient, TimeSpan period, object message)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>sender</strong></dt><dd>Optional information about the sender, usually used by <strong>recipient</strong> to respond to the <strong>message</strong></dd><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>recipient</strong></dt><dd>Recipient of the message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.timespan" class="link-external" target="_blank" >System.TimeSpan</a> <strong>period</strong></dt><dd>Period after which the message is periodically enqueued to the <strong>recipient</strong> queue</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>message</strong></dt><dd>Message to be periodically sent to the <strong>recipient</strong></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>Unique ID of scheduled message</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.start__clajz5" ></a>  IActorSystem.Start() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Starts the message dispatcher (started by default within ActorSystem constructor)</p>
+<pre><code class="csharp">public abstract void Start()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actorsystem.iactorsystem.stop__dly8m5" ></a>  IActorSystem.Stop() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#n-net.adamec.lib.common.actor.actorsystem__1ihx1md" >net.adamec.lib.common.actor.actorsystem</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >IActorSystem</a><br />
+Sources: actorsystem\IActorSystem.cs</small></p>
+<p>Stops the message dispatcher (can be restarted using <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#m-net.adamec.lib.common.actor.actorsystem.iactorsystem.start__clajz5" >Start()</a> method)</p>
+<pre><code class="csharp">public abstract void Stop()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+</body></html>

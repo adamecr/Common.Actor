@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RAD Actor System Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js" ></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+body { color: #24292e;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size: 16px;line-height: 1.5; word-wrap: break-word;margin: 20px;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h4 {font-size: 1.25em;}
+h1, h2 {border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+h1, h2, h3,  h4{font-weight: 600;line-height: 1.25;margin-bottom: 16px;margin-top: 24px;}
+blockquote, ol, p, pre, table, ul {margin-bottom: 16px;margin-top: 0;}
+a{color: #0366d6;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a.link-external:hover{text-decoration: underline; color:gray;}
+pre code {border: 0;display: inline;line-height: inherit;margin: 2px;overflow: visible;padding: 5px ;word-wrap: normal;}
+pre>code {font-size: 100%;white-space: pre;word-break: normal;padding: 0px}
+code {border-radius: 3px;}
+code, pre {font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+pre {background-color: #f6f8fa;border-radius: 3px;font-size: 85%;line-height: 1.45;overflow: auto;padding: 0px;word-wrap: normal;}
+table {display: block;overflow: auto;width: 100%;border-collapse: collapse;border-spacing: 0;border-color: grey;}
+table tr {background-color: #fff;border-top: 1px solid #c6cbd1;}
+table tr:nth-child(2n) {background-color: #f6f8fa;}
+table td, table th {border: 1px solid #dfe2e5;padding: 6px 13px;}
+dl {display: grid; grid-template-columns: max-content auto; margin: 5px;}
+p+dl {margin-top: -15px;}
+dt {grid-column-start: 1;}
+dd {grid-column-start: 2;}
+</style>
+</head>
+<body>
+
+<h1>  RAD Actor System Documentation </h1>
+<h2>  <a id="n-net.adamec.lib.common.actor.actor.exchanges.single__6r83x4" ></a>  net.adamec.lib.common.actor.actor.exchanges.single Namespace </h2>
+<h3>  Classes </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#t-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor__1q6rr7y" >SingleExchangeActor</a></td><td>public</td><td>Exchange Actor with zero or one subscriber</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor__1q6rr7y" ></a>  SingleExchangeActor Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#n-net.adamec.lib.common.actor.actor.exchanges.single__6r83x4" >net.adamec.lib.common.actor.actor.exchanges.single</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Sources: actor\exchanges\single\SingleExchangeActor.cs</small></p>
+<p>Exchange Actor with zero or one subscriber</p>
+<pre><code class="csharp">public class SingleExchangeActor : ExchangeActor&lt;net.adamec.lib.common.actor.actor.exchanges.@base.Subscription,net.adamec.lib.common.actor.actor.exchanges.@base.SubscriptionMessage,net.adamec.lib.common.actor.actor.exchanges.@base.UnSubscriptionMessage&gt;</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >net.adamec.lib.common.utils.BaseDisposable</a> -&gt; <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >net.adamec.lib.common.actor.actor.Actor</a> -&gt; <a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.exchangeactor-3__1p1cfiq" >net.adamec.lib.common.actor.actor.exchanges.@base.ExchangeActor&lt;net.adamec.lib.common.actor.actor.exchanges.@base.Subscription,net.adamec.lib.common.actor.actor.exchanges.@base.SubscriptionMessage,net.adamec.lib.common.actor.actor.exchanges.@base.UnSubscriptionMessage&gt;</a><br />
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" class="link-external" target="_blank" >IDisposable</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactor__16hx1xi" >net.adamec.lib.common.actor.actor.IActor</a></p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#m-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor.-ctor_net.adamec.lib.common.actor.actorsystem.iactorsystem-system.string___1090o6d" >SingleExchangeActor(IActorSystem, string)</a></td><td>public</td><td>CTOR</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#m-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor.replaceonsubscribe_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.exchanges.base.subscriptionmessage___1t22f9h" >ReplaceOnSubscribe(IActorRef, SubscriptionMessage)</a></td><td>protected</td><td>Removes all existing subscription when a new subscription message arrives.</td></tr>
+<tr><td><a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#m-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor.subscriptionfactory_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.exchanges.base.subscriptionmessage___kht5cf" >SubscriptionFactory(IActorRef, SubscriptionMessage)</a></td><td>protected</td><td>Creates a new <a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.subscription__1q5jclm" >Subscription</a> instance for incoming <strong>subscriptionMessage</strong></td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor.-ctor_net.adamec.lib.common.actor.actorsystem.iactorsystem-system.string___1090o6d" ></a>  SingleExchangeActor.SingleExchangeActor(IActorSystem, string) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#n-net.adamec.lib.common.actor.actor.exchanges.single__6r83x4" >net.adamec.lib.common.actor.actor.exchanges.single</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#t-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor__1q6rr7y" >SingleExchangeActor</a><br />
+Sources: actor\exchanges\single\SingleExchangeActor.cs</small></p>
+<p>CTOR</p>
+<pre><code class="csharp">public SingleExchangeActor(IActorSystem actorSystem, string name)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.iactorsystem__wkr3cs" >net.adamec.lib.common.actor.actorsystem.IActorSystem</a> <strong>actorSystem</strong></dt><dd>Actor system</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the exchange actor</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor.replaceonsubscribe_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.exchanges.base.subscriptionmessage___1t22f9h" ></a>  SingleExchangeActor.ReplaceOnSubscribe(IActorRef, SubscriptionMessage) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#n-net.adamec.lib.common.actor.actor.exchanges.single__6r83x4" >net.adamec.lib.common.actor.actor.exchanges.single</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#t-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor__1q6rr7y" >SingleExchangeActor</a><br />
+Sources: actor\exchanges\single\SingleExchangeActor.cs</small></p>
+<p>Removes all existing subscription when a new subscription message arrives.</p>
+<pre><code class="csharp">protected override Subscription[] ReplaceOnSubscribe(IActorRef actorRef, SubscriptionMessage subscriptionMessage)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>actorRef</strong></dt><dd>Reference to subscribing actor</dd><dt><a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.subscriptionmessage__1d4egm1" >net.adamec.lib.common.actor.actor.exchanges.@base.SubscriptionMessage</a> <strong>subscriptionMessage</strong></dt><dd>Subscription message</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.subscription__1q5jclm" >net.adamec.lib.common.actor.actor.exchanges.@base.Subscription[]</a></dt><dd>List of all existing subscriptions</dd></dl>Overrides: <a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#m-net.adamec.lib.common.actor.actor.exchanges.base.exchangeactor-3.replaceonsubscribe_net.adamec.lib.common.actor.actor.iactorref--1___16aaybh" >ExchangeActor&lt;TSubscription,TSubscriptionMessage,TUnSubscriptionMessage&gt;.ReplaceOnSubscribe(IActorRef, ExchangeActor&lt;TSubscription,TSubscriptionMessage,TUnSubscriptionMessage&gt;.TSubscriptionMessage)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor.subscriptionfactory_net.adamec.lib.common.actor.actor.iactorref-net.adamec.lib.common.actor.actor.exchanges.base.subscriptionmessage___kht5cf" ></a>  SingleExchangeActor.SubscriptionFactory(IActorRef, SubscriptionMessage) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#n-net.adamec.lib.common.actor.actor.exchanges.single__6r83x4" >net.adamec.lib.common.actor.actor.exchanges.single</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.actor.actor.exchanges.single__6r83x4.html#t-net.adamec.lib.common.actor.actor.exchanges.single.singleexchangeactor__1q6rr7y" >SingleExchangeActor</a><br />
+Sources: actor\exchanges\single\SingleExchangeActor.cs</small></p>
+<p>Creates a new <a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.subscription__1q5jclm" >Subscription</a> instance for incoming <strong>subscriptionMessage</strong></p>
+<pre><code class="csharp">protected override Subscription SubscriptionFactory(IActorRef actorRef, SubscriptionMessage subscriptionMessage)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.iactorref__63mbv" >net.adamec.lib.common.actor.actor.IActorRef</a> <strong>actorRef</strong></dt><dd>Reference to subscribing actor</dd><dt><a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.subscriptionmessage__1d4egm1" >net.adamec.lib.common.actor.actor.exchanges.@base.SubscriptionMessage</a> <strong>subscriptionMessage</strong></dt><dd>Subscription message</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#t-net.adamec.lib.common.actor.actor.exchanges.base.subscription__1q5jclm" >net.adamec.lib.common.actor.actor.exchanges.@base.Subscription</a></dt><dd>Subscription instance</dd></dl>Overrides: <a href="net.adamec.lib.common.actor.actor.exchanges.@base__1g84l6h.html#m-net.adamec.lib.common.actor.actor.exchanges.base.exchangeactor-3.subscriptionfactory_net.adamec.lib.common.actor.actor.iactorref--1___hz2yob" >ExchangeActor&lt;TSubscription,TSubscriptionMessage,TUnSubscriptionMessage&gt;.SubscriptionFactory(IActorRef, ExchangeActor&lt;TSubscription,TSubscriptionMessage,TUnSubscriptionMessage&gt;.TSubscriptionMessage)</a></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+</body></html>

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using net.adamec.lib.common.actor.actorsystem;
 using net.adamec.lib.common.actor.message;
 using net.adamec.lib.common.actor.queue;
-using net.adamec.lib.common.extensions;
 using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.actor.actor
