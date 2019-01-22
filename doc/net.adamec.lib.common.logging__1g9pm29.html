@@ -39,7 +39,7 @@ dd {grid-column-start: 2;}
 <h3>  Classes </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.commonlogging__1dar5wb" >CommonLogging</a></td><td>internal static</td><td><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a> factory</td></tr>
-<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a></td><td>internal</td><td><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a> extensions</td></tr>
+<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a></td><td>internal</td><td>Extended logger implementing <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a></td></tr>
 </table>
 <p> </p>
 <h3>  Interfaces </h3>
@@ -106,15 +106,15 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <h2>  <a id="t-net.adamec.lib.common.logging.loggerext__ac9km2" ></a>  LoggerExt Class </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
-Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
-<p><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a> extensions</p>
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs, App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs, App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionFilter.cs, App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs, App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a>, <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a>, <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a>, <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a>, <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
+<p>Extended logger implementing <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a></p>
 <pre><code class="csharp">internal class LoggerExt : Logger, ILogger</code></pre>
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; NLog.Logger<br />
 Implements: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >net.adamec.lib.common.logging.ILogger</a>, NLog.ILogger, NLog.ILoggerBase, NLog.ISuppress</p>
 <h3>  Methods </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924" >CreateException&lt;TException&gt;(string, Exception)</a></td><td>private static</td><td>Writes the diagnostic message at the <code class="csharp">Fatal</code> level. Creates and returns the exception of given type</td></tr>
+<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.string--system.exception___1kt7m7i" >CreateException&lt;TException&gt;(string, string, Exception)</a></td><td>private static</td><td>Writes the diagnostic message at the <code class="csharp">Fatal</code> level. Creates and returns the exception of given type</td></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___by66ma" >Debug(Dictionary&lt;string,object&gt;, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Debug</code> level.</td></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.debugcorr_system.string-system.string___i119af" >DebugCorr(string, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Debug</code> level with correlation ID.</td></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___7fy00h" >Error(Dictionary&lt;string,object&gt;, Exception, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Error</code> level.</td></tr>
@@ -139,9 +139,9 @@ Implements: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.li
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.fatalpassthrough_system.exception-system.string___10psm2o" >FatalPassThrough(Exception, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns given <strong>exception</strong> &gt;</td></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1qxds6b" >Info(Dictionary&lt;string,object&gt;, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Info</code> level.</td></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.infocorr_system.string-system.string___3vobha" >InfoCorr(string, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Info</code> level with correlation ID.</td></tr>
-<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4" >LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception)</a></td><td>private</td><td>Writes the item (message with optional event properties and exception)  into the log</td></tr>
-<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf" >LogIt(LogLevel, string, Exception)</a></td><td>private</td><td>Writes the item (message with optional exception)  into the log</td></tr>
-<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt" >LogIt(LogLevel, string, string, Exception)</a></td><td>private</td><td>Writes the item (message with optional exception) with correlation Id into the log</td></tr>
+<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception-system.string___vo1jng" >LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception, string)</a></td><td>private</td><td>Writes the item (message with optional event properties and exception)  into the log</td></tr>
+<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception-system.string___17r766x" >LogIt(LogLevel, string, Exception, string)</a></td><td>private</td><td>Writes the item (message with optional exception)  into the log</td></tr>
+<tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception-system.string___14n4i77" >LogIt(LogLevel, string, string, Exception, string)</a></td><td>private</td><td>Writes the item (message with optional exception) with correlation Id into the log</td></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___1k5wn70" >Trace(Dictionary&lt;string,object&gt;, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Trace</code> level.</td></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.tracecorr_system.string-system.string___1e218kz" >TraceCorr(string, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Trace</code> level with correlation ID</td></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___8kyvvj" >Warn(Dictionary&lt;string,object&gt;, Exception, string)</a></td><td>public</td><td>Writes the diagnostic message at the <code class="csharp">Warn</code> level.</td></tr>
@@ -152,16 +152,16 @@ Implements: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.li
 <p> </p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924" ></a>  LoggerExt.CreateException&lt;TException&gt;(string, Exception) Method </h2>
+<h2>  <a id="m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.string--system.exception___1kt7m7i" ></a>  LoggerExt.CreateException&lt;TException&gt;(string, string, Exception) Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
 Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level. Creates and returns the exception of given type</p>
-<pre><code class="csharp">private static LoggerExt.TException CreateException&lt;TException&gt;(string message, Exception innerException = null) where TException: Exception</code></pre>
+<pre><code class="csharp">private static LoggerExt.TException CreateException&lt;TException&gt;(string message, out string stackTrace, Exception innerException = null) where TException: Exception</code></pre>
 <strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Stack trace to be logged in <code class="csharp">StackTrace</code> event property</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
 <p><strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Created exception</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
@@ -169,7 +169,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Debug</code> level.</p>
 <pre><code class="csharp">public void Debug(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -181,7 +181,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Debug</code> level with correlation ID.</p>
 <pre><code class="csharp">public void DebugCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -193,7 +193,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level.</p>
 <pre><code class="csharp">public void Error(Dictionary&lt;string,object&gt; eventProperties, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -205,7 +205,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level.</p>
 <pre><code class="csharp">public void Error(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -217,7 +217,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level. Creates and returns the exception of given type</p>
 <pre><code class="csharp">public LoggerExt.TException Error&lt;TException&gt;(string message, Exception innerException = null) where TException: Exception</code></pre>
@@ -230,7 +230,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level with correlation ID.</p>
 <pre><code class="csharp">public void ErrorCorr(string correlationId, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -242,7 +242,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level with correlation ID.</p>
 <pre><code class="csharp">public void ErrorCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -254,7 +254,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level and returns the exception of given type</p>
 <pre><code class="csharp">public LoggerExt.TException ErrorCorr&lt;TException&gt;(string correlationId, LoggerExt.TException exception, string message = null) where TException: Exception</code></pre>
@@ -267,7 +267,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level with correlation ID. Creates and returns the exception of given type</p>
 <pre><code class="csharp">public LoggerExt.TException ErrorCorr&lt;TException&gt;(string correlationId, string message, Exception innerException = null) where TException: Exception</code></pre>
@@ -280,7 +280,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionFilter.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level and returns the exception of given type</p>
 <pre><code class="csharp">public bool ErrorFltr&lt;TException&gt;(LoggerExt.TException exception, string message = null, bool catchIt = false) where TException: Exception</code></pre>
@@ -306,7 +306,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level and returns the exception of given type</p>
 <pre><code class="csharp">public bool ErrorFltrCorr&lt;TException&gt;(string correlationId, LoggerExt.TException exception, string message = null, bool catchIt = false) where TException: Exception</code></pre>
@@ -323,7 +323,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level and returns given <strong>exception</strong></p>
 <pre><code class="csharp">public Exception ErrorPassThrough(Exception exception, string message = null)</code></pre>
@@ -335,7 +335,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level.</p>
 <pre><code class="csharp">public void Fatal(Dictionary&lt;string,object&gt; eventProperties, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -347,7 +347,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level.</p>
 <pre><code class="csharp">public void Fatal(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -359,7 +359,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level. Creates and returns the exception of given type</p>
 <pre><code class="csharp">public LoggerExt.TException Fatal&lt;TException&gt;(string message, Exception innerException = null) where TException: Exception</code></pre>
@@ -372,7 +372,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level with correlation ID.</p>
 <pre><code class="csharp">public void FatalCorr(string correlationId, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -384,7 +384,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level with correlation ID.</p>
 <pre><code class="csharp">public void FatalCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -396,7 +396,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns the exception of given type</p>
 <pre><code class="csharp">public LoggerExt.TException FatalCorr&lt;TException&gt;(string correlationId, LoggerExt.TException exception, string message = null) where TException: Exception</code></pre>
@@ -409,7 +409,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level with correlation ID. Creates and returns the exception of given type</p>
 <pre><code class="csharp">public LoggerExt.TException FatalCorr&lt;TException&gt;(string correlationId, string message, Exception innerException = null) where TException: Exception</code></pre>
@@ -422,7 +422,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionFilter.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns <strong>catchIt</strong> value.</p>
 <pre><code class="csharp">public bool FatalFltr&lt;TException&gt;(LoggerExt.TException exception, string message = null, bool catchIt = false) where TException: Exception</code></pre>
@@ -439,7 +439,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns <strong>catchIt</strong> value.</p>
 <pre><code class="csharp">public bool FatalFltrCorr&lt;TException&gt;(string correlationId, LoggerExt.TException exception, string message = null, bool catchIt = false) where TException: Exception</code></pre>
@@ -456,7 +456,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns given <strong>exception</strong> &gt;</p>
 <pre><code class="csharp">public Exception FatalPassThrough(Exception exception, string message = null)</code></pre>
@@ -468,7 +468,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Info</code> level.</p>
 <pre><code class="csharp">public void Info(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -480,7 +480,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Info</code> level with correlation ID.</p>
 <pre><code class="csharp">public void InfoCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -488,39 +488,39 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.infocorr_system.string-system.string___2iypny" >ILogger.InfoCorr(string, string)</a></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4" ></a>  LoggerExt.LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception) Method </h2>
+<h2>  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception-system.string___vo1jng" ></a>  LoggerExt.LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception, string) Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
 Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the item (message with optional event properties and exception)  into the log</p>
-<pre><code class="csharp">private void LogIt(LogLevel level, Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message, Exception exception = null)</code></pre>
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" class="link-external" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties (null when no properties are provided)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<pre><code class="csharp">private void LogIt(LogLevel level, Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)</code></pre>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" class="link-external" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties (null when no properties are provided)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in <code class="csharp">StackTrace</code> event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" class="link-external" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf" ></a>  LoggerExt.LogIt(LogLevel, string, Exception) Method </h2>
+<h2>  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception-system.string___17r766x" ></a>  LoggerExt.LogIt(LogLevel, string, Exception, string) Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
 Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the item (message with optional exception)  into the log</p>
-<pre><code class="csharp">private void LogIt(LogLevel level, [Localizable(false)] string message, Exception exception = null)</code></pre>
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<pre><code class="csharp">private void LogIt(LogLevel level, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)</code></pre>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in <code class="csharp">StackTrace</code> event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" class="link-external" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt" ></a>  LoggerExt.LogIt(LogLevel, string, string, Exception) Method </h2>
+<h2>  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception-system.string___14n4i77" ></a>  LoggerExt.LogIt(LogLevel, string, string, Exception, string) Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the item (message with optional exception) with correlation Id into the log</p>
-<pre><code class="csharp">private void LogIt(LogLevel level, string correlationId, [Localizable(false)] string message, Exception exception = null)</code></pre>
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<pre><code class="csharp">private void LogIt(LogLevel level, string correlationId, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)</code></pre>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in <code class="csharp">StackTrace</code> event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" class="link-external" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
@@ -528,7 +528,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Trace</code> level.</p>
 <pre><code class="csharp">public void Trace(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -540,7 +540,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Trace</code> level with correlation ID</p>
 <pre><code class="csharp">public void TraceCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -552,7 +552,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Warn</code> level.</p>
 <pre><code class="csharp">public void Warn(Dictionary&lt;string,object&gt; eventProperties, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -564,7 +564,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Warn</code> level.</p>
 <pre><code class="csharp">public void Warn(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -576,7 +576,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Warn</code> level with correlation ID.</p>
 <pre><code class="csharp">public void WarnCorr(string correlationId, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -588,7 +588,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Warn</code> level with correlation ID.</p>
 <pre><code class="csharp">public void WarnCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -599,12 +599,39 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <h2>  <a id="t-net.adamec.lib.common.logging.ilogger__y2ollm" ></a>  ILogger Interface </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
-Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs, App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs, App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionFilter.cs, App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs, App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a>, <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a>, <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a>, <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a>, <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods</p>
 <pre><code class="csharp">internal interface ILogger : ILogger</code></pre>
 <p>Implemented by: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >net.adamec.lib.common.logging.LoggerExt</a><br />
 Implements: NLog.ILogger, NLog.ILoggerBase, NLog.ISuppress</p>
+<h3>  Remarks </h3>
+<p><p>The NLog supports having additional (custom) event properties provided to loggers and optionally rendered to logs. The event properties are represented as key-value dictionary, where key is the unique name of the property. <p>Extended logger provides following methods to log with given set of the properties.</p> 
+
+<ul><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k" >Trace(Dictionary&lt;string,object&gt;, string)</a> ,</li><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq" >Debug(Dictionary&lt;string,object&gt;, string)</a> ,</li><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr" >Info(Dictionary&lt;string,object&gt;, string)</a> ,</li><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3" >Warn(Dictionary&lt;string,object&gt;, string)</a> ,</li><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl" >Error(Dictionary&lt;string,object&gt;, string)</a> ,</li><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz" >Fatal(Dictionary&lt;string,object&gt;, string)</a> ,</li><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj" >Warn(Dictionary&lt;string,object&gt;, Exception, string)</a> ,</li><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d" >Error(Dictionary&lt;string,object&gt;, Exception, string)</a> and</li><li><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn" >Fatal(Dictionary&lt;string,object&gt;, Exception, string)</a></li></ul>
+
+</p>  <p>Sometimes, it&#39;s useful to have an exception logging method implemented as the operation returning the exception being logged. The <a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk" >ErrorPassThrough(Exception, string)</a> and <a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8" >FatalPassThrough(Exception, string)</a> methods will log given exception and return it for further processing. <pre><code class="csharp">    try
+    {
+      ...
+    }
+    catch (Exception ex){
+       if(logger.ErrorPassThrough(ex) is MyException){
+         return null;
+       }else{
+         throw;
+       } 
+    }</code></pre> In the example above, the exception is always logged and then the decision/action is taken.</p> <p>C# 6 brought the exception filters that don&#39;t unwind the stack as the exception is not catch yet when processing the filter. It can also be used for logging the exceptions without actually catching them (when the exception filter returns <code class="csharp">false</code> ). Extended logger provides functions <a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm" >ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)</a> and <a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa" >FatalFltr&lt;TException&gt;(ILogger.TException, string, bool)</a> for this purpose. <pre><code class="csharp">    try
+    {
+      ...
+    }
+    catch (Exception ex) when (logger.ErrorFltr(ex,&quot;Error here!&quot;){
+      //newer called as the default return value of ErrorFltr is false     
+    }</code></pre> The example above logs but never catch all exceptions. The following code catch and log the ArgumentException and logs any other exception without catching it. <pre><code class="csharp">    try
+    {
+      ...
+    }
+    catch (ArgumentException e) when (Logger.ErrorFltr(e,catchIt:true)) { ... }
+    catch (Exception e) when (Logger.FatalFltr(e)) {}</code></pre></p>  <p>Logger can also create and exception, log it and return using functions <a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh" >Error&lt;TException&gt;(string, Exception)</a> and <a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73" >Fatal&lt;TException&gt;(string, Exception)</a> <pre><code class="csharp">    if(value is null) throw logger.Fatal&lt;ArgumentNullException&gt;(&quot;Value is null&quot;);</code></pre></p>  <p>When logging an exception using the <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a> methods, the event property <code class="csharp">StackTrace</code> is set from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" class="link-external" target="_blank" >System.Exception.StackTrace</a> , when the logger creates an exception, the property is set using <code class="csharp">new StackTrace(2, true).ToString()</code> . In other cases when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" class="link-external" target="_blank" >System.Exception.StackTrace</a> is null or empty, <code class="csharp">new StackTrace(true).ToString()</code> is used.</p>  <p><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.loggerext__ac9km2" >LoggerExt</a> also provides set of methods for logging with the correlation ID (for example in integration scenarios), where the given correlation ID is set to the event property <code class="csharp">CorrelationId</code> . Such methods have the name ending with <code class="csharp">Corr</code> suffix.</p></p>
 <h3>  Methods </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
 <tr><td><a href="net.adamec.lib.common.logging__1g9pm29.html#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq" >Debug(Dictionary&lt;string,object&gt;, string)</a></td><td>public abstract</td><td>Writes the diagnostic message at the <code class="csharp">Debug</code> level.</td></tr>
@@ -645,7 +672,7 @@ Implements: NLog.ILogger, NLog.ILoggerBase, NLog.ISuppress</p>
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Debug</code> level.</p>
 <pre><code class="csharp">public abstract void Debug(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -657,7 +684,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Debug</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void DebugCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -669,7 +696,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level.</p>
 <pre><code class="csharp">public abstract void Error(Dictionary&lt;string,object&gt; eventProperties, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -681,7 +708,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level.</p>
 <pre><code class="csharp">public abstract void Error(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -693,7 +720,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level. Creates and returns the exception of given type</p>
 <pre><code class="csharp">public abstract ILogger.TException Error&lt;TException&gt;(string message, Exception innerException = null) where TException: Exception</code></pre>
@@ -706,7 +733,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void ErrorCorr(string correlationId, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -718,7 +745,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void ErrorCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -730,7 +757,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level and returns the exception of given type</p>
 <pre><code class="csharp">public abstract ILogger.TException ErrorCorr&lt;TException&gt;(string correlationId, ILogger.TException exception, string message = null) where TException: Exception</code></pre>
@@ -743,7 +770,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level with correlation ID. Creates and returns the exception of given type</p>
 <pre><code class="csharp">public abstract ILogger.TException ErrorCorr&lt;TException&gt;(string correlationId, string message, Exception innerException = null) where TException: Exception</code></pre>
@@ -756,7 +783,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionFilter.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level and returns the exception of given type</p>
 <pre><code class="csharp">public abstract bool ErrorFltr&lt;TException&gt;(ILogger.TException exception, string message = null, bool catchIt = false) where TException: Exception</code></pre>
@@ -782,7 +809,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level and returns the exception of given type</p>
 <pre><code class="csharp">public abstract bool ErrorFltrCorr&lt;TException&gt;(string correlationId, ILogger.TException exception, string message = null, bool catchIt = false) where TException: Exception</code></pre>
@@ -799,7 +826,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Error</code> level and returns given <strong>exception</strong></p>
 <pre><code class="csharp">public abstract Exception ErrorPassThrough(Exception exception, string message = null)</code></pre>
@@ -811,7 +838,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level.</p>
 <pre><code class="csharp">public abstract void Fatal(Dictionary&lt;string,object&gt; eventProperties, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -823,7 +850,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level.</p>
 <pre><code class="csharp">public abstract void Fatal(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -835,7 +862,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level. Creates and returns the exception of given type</p>
 <pre><code class="csharp">public abstract ILogger.TException Fatal&lt;TException&gt;(string message, Exception innerException = null) where TException: Exception</code></pre>
@@ -848,7 +875,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void FatalCorr(string correlationId, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -860,7 +887,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void FatalCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -872,7 +899,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns the exception of given type</p>
 <pre><code class="csharp">public abstract ILogger.TException FatalCorr&lt;TException&gt;(string correlationId, ILogger.TException exception, string message = null) where TException: Exception</code></pre>
@@ -885,7 +912,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level with correlation ID. Creates and returns the exception of given type</p>
 <pre><code class="csharp">public abstract ILogger.TException FatalCorr&lt;TException&gt;(string correlationId, string message, Exception innerException = null) where TException: Exception</code></pre>
@@ -898,7 +925,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionFilter.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns <strong>catchIt</strong> value.</p>
 <pre><code class="csharp">public abstract bool FatalFltr&lt;TException&gt;(ILogger.TException exception, string message = null, bool catchIt = false) where TException: Exception</code></pre>
@@ -915,7 +942,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns <strong>catchIt</strong> value.</p>
 <pre><code class="csharp">public abstract bool FatalFltrCorr&lt;TException&gt;(string correlationId, ILogger.TException exception, string message = null, bool catchIt = false) where TException: Exception</code></pre>
@@ -932,7 +959,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Fatal</code> level and returns given <strong>exception</strong></p>
 <pre><code class="csharp">public abstract Exception FatalPassThrough(Exception exception, string message = null)</code></pre>
@@ -944,7 +971,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Info</code> level.</p>
 <pre><code class="csharp">public abstract void Info(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -956,7 +983,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Info</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void InfoCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -968,7 +995,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Trace</code> level.</p>
 <pre><code class="csharp">public abstract void Trace(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -980,7 +1007,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Trace</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void TraceCorr(string correlationId, [Localizable(false)] string message)</code></pre>
@@ -992,7 +1019,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Warn</code> level.</p>
 <pre><code class="csharp">public abstract void Warn(Dictionary&lt;string,object&gt; eventProperties, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -1004,7 +1031,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Warn</code> level.</p>
 <pre><code class="csharp">public abstract void Warn(Dictionary&lt;string,object&gt; eventProperties, [Localizable(false)] string message)</code></pre>
@@ -1016,7 +1043,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Warn</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void WarnCorr(string correlationId, Exception exception, [Localizable(false)] string message)</code></pre>
@@ -1028,7 +1055,7 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p><small>Namespace: <a href="net.adamec.lib.common.logging__1g9pm29.html#n-net.adamec.lib.common.logging__1g9pm29" >net.adamec.lib.common.logging</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >ILogger</a><br />
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs<br />
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging" >RadCommons.logging.CommonLogging</a></small></p>
 <p>Writes the diagnostic message at the <code class="csharp">Warn</code> level with correlation ID.</p>
 <pre><code class="csharp">public abstract void WarnCorr(string correlationId, [Localizable(false)] string message)</code></pre>

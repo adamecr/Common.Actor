@@ -84,12 +84,12 @@ namespace build.tasks
         /// URL to package license
         /// </summary>
         public string PackageLicenseUrl { get; set; }
-        
+
         /// <summary>
         /// Package license type
         /// </summary>
         public string PackageLicense { get; set; }
-        
+
         /// <summary>
         /// URL to package project
         /// </summary>
@@ -227,10 +227,14 @@ namespace build.tasks
             {
                 foreach (var r in PackageReferences)
                 {
-                    var item = r.ItemSpec;
-                    if (item != "NETStandard.Library")
+                    var isImplicit = r.GetMetadata("IsImplicitlyDefined") == "true";
+                    var privateAssets = r.GetMetadata("PrivateAssets");
+                    if (string.IsNullOrWhiteSpace(privateAssets)) privateAssets = "build,analyzers";
+                    var isAllPrivate = privateAssets.ToLower() == "all";
+
+                    if (!isImplicit && !isAllPrivate)
                         sb.AppendLine(
-                            $"    <dependency id=\"{r.ItemSpec}\" version=\"{r.GetMetadata("Version")}\" exclude=\"Build,Analyzers\" />");
+                            $"    <dependency id=\"{r.ItemSpec}\" version=\"{r.GetMetadata("Version")}\" exclude=\"{privateAssets}\" />");
                 }
             }
 

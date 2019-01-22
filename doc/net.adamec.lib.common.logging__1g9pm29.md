@@ -5,7 +5,7 @@
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [CommonLogging](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.commonlogging__1dar5wb) | internal static | [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory | 
- | [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2) | internal | [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions | 
+ | [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2) | internal | Extended logger implementing [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm) | 
 
  
 
@@ -142,11 +142,11 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 ##  <a id="t-net.adamec.lib.common.logging.loggerext__ac9km2" />  LoggerExt Class ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs, App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs, App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionFilter.cs, App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs, App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
-[ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions
+Extended logger implementing [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)
 
 
 
@@ -162,7 +162,7 @@ Implements: [net.adamec.lib.common.logging.ILogger](net.adamec.lib.common.loggin
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [CreateException&lt;TException&gt;(string, Exception)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924) | private static | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
+ | [CreateException&lt;TException&gt;(string, string, Exception)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.string--system.exception___1kt7m7i) | private static | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
  | [Debug(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___by66ma) | public | Writes the diagnostic message at the `Debug` level. | 
  | [DebugCorr(string, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.debugcorr_system.string-system.string___i119af) | public | Writes the diagnostic message at the `Debug` level with correlation ID. | 
  | [Error(Dictionary&lt;string,object&gt;, Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___7fy00h) | public | Writes the diagnostic message at the `Error` level. | 
@@ -187,9 +187,9 @@ Implements: [net.adamec.lib.common.logging.ILogger](net.adamec.lib.common.loggin
  | [FatalPassThrough(Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.fatalpassthrough_system.exception-system.string___10psm2o) | public | Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong> &gt; | 
  | [Info(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1qxds6b) | public | Writes the diagnostic message at the `Info` level. | 
  | [InfoCorr(string, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.infocorr_system.string-system.string___3vobha) | public | Writes the diagnostic message at the `Info` level with correlation ID. | 
- | [LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4) | private | Writes the item (message with optional event properties and exception)  into the log | 
- | [LogIt(LogLevel, string, Exception)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf) | private | Writes the item (message with optional exception)  into the log | 
- | [LogIt(LogLevel, string, string, Exception)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt) | private | Writes the item (message with optional exception) with correlation Id into the log | 
+ | [LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception-system.string___vo1jng) | private | Writes the item (message with optional event properties and exception)  into the log | 
+ | [LogIt(LogLevel, string, Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception-system.string___17r766x) | private | Writes the item (message with optional exception)  into the log | 
+ | [LogIt(LogLevel, string, string, Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception-system.string___14n4i77) | private | Writes the item (message with optional exception) with correlation Id into the log | 
  | [Trace(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___1k5wn70) | public | Writes the diagnostic message at the `Trace` level. | 
  | [TraceCorr(string, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.tracecorr_system.string-system.string___1e218kz) | public | Writes the diagnostic message at the `Trace` level with correlation ID | 
  | [Warn(Dictionary&lt;string,object&gt;, Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___8kyvvj) | public | Writes the diagnostic message at the `Warn` level. | 
@@ -206,7 +206,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924" />  LoggerExt.CreateException&lt;TException&gt;(string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.string--system.exception___1kt7m7i" />  LoggerExt.CreateException&lt;TException&gt;(string, string, Exception) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
@@ -219,11 +219,11 @@ Writes the diagnostic message at the `Fatal` level. Creates and returns the exce
 
 
 ```csharp
-private static LoggerExt.TException CreateException<TException>(string message, Exception innerException = null) where TException: Exception
+private static LoggerExt.TException CreateException<TException>(string message, out string stackTrace, Exception innerException = null) where TException: Exception
 ```
 
 <strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Stack trace to be logged in `StackTrace` event property</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
 <strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Created exception</dd></dl>
 
 
@@ -237,7 +237,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -263,7 +263,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -289,7 +289,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -315,7 +315,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -341,7 +341,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -368,7 +368,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -394,7 +394,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -420,7 +420,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -447,7 +447,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -474,7 +474,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionFilter.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -526,7 +526,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -561,7 +561,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -587,7 +587,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -613,7 +613,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -639,7 +639,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -666,7 +666,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -692,7 +692,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -718,7 +718,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -745,7 +745,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -772,7 +772,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionFilter.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -807,7 +807,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -842,7 +842,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -868,7 +868,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -894,7 +894,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -916,7 +916,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4" />  LoggerExt.LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception-system.string___vo1jng" />  LoggerExt.LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
@@ -929,10 +929,10 @@ Writes the item (message with optional event properties and exception)  into the
 
 
 ```csharp
-private void LogIt(LogLevel level, Dictionary<string,object> eventProperties, [Localizable(false)] string message, Exception exception = null)
+private void LogIt(LogLevel level, Dictionary<string,object> eventProperties, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties (null when no properties are provided)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties (null when no properties are provided)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in `StackTrace` event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -942,7 +942,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf" />  LoggerExt.LogIt(LogLevel, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception-system.string___17r766x" />  LoggerExt.LogIt(LogLevel, string, Exception, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
@@ -955,10 +955,10 @@ Writes the item (message with optional exception)  into the log
 
 
 ```csharp
-private void LogIt(LogLevel level, [Localizable(false)] string message, Exception exception = null)
+private void LogIt(LogLevel level, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in `StackTrace` event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -968,11 +968,11 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt" />  LoggerExt.LogIt(LogLevel, string, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception-system.string___14n4i77" />  LoggerExt.LogIt(LogLevel, string, string, Exception, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -981,10 +981,10 @@ Writes the item (message with optional exception) with correlation Id into the l
 
 
 ```csharp
-private void LogIt(LogLevel level, string correlationId, [Localizable(false)] string message, Exception exception = null)
+private void LogIt(LogLevel level, string correlationId, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in `StackTrace` event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -998,7 +998,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1024,7 +1024,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1050,7 +1050,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1076,7 +1076,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1102,7 +1102,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1128,7 +1128,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1153,8 +1153,8 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 ##  <a id="t-net.adamec.lib.common.logging.ilogger__y2ollm" />  ILogger Interface ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs, App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs, App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionFilter.cs, App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs, App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
 Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods
@@ -1167,6 +1167,76 @@ internal interface ILogger : ILogger
 
 Implemented by: [net.adamec.lib.common.logging.LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
 Implements: NLog.ILogger, NLog.ILoggerBase, NLog.ISuppress
+
+
+###  Remarks ###
+The NLog supports having additional (custom) event properties provided to loggers and optionally rendered to logs. The event properties are represented as key-value dictionary, where key is the unique name of the property. Extended logger provides following methods to log with given set of the properties.
+
+ 
+
+
+ - [Trace(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k) ,
+ - [Debug(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq) ,
+ - [Info(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr) ,
+ - [Warn(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3) ,
+ - [Error(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl) ,
+ - [Fatal(Dictionary&lt;string,object&gt;, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz) ,
+ - [Warn(Dictionary&lt;string,object&gt;, Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj) ,
+ - [Error(Dictionary&lt;string,object&gt;, Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d) and
+ - [Fatal(Dictionary&lt;string,object&gt;, Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn)
+           
+
+
+
+
+  Sometimes, it&#39;s useful to have an exception logging method implemented as the operation returning the exception being logged. The [ErrorPassThrough(Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk) and [FatalPassThrough(Exception, string)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8) methods will log given exception and return it for further processing. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (Exception ex){
+       if(logger.ErrorPassThrough(ex) is MyException){
+         return null;
+       }else{
+         throw;
+       } 
+    }
+```
+ In the example above, the exception is always logged and then the decision/action is taken.
+
+ C# 6 brought the exception filters that don&#39;t unwind the stack as the exception is not catch yet when processing the filter. It can also be used for logging the exceptions without actually catching them (when the exception filter returns `false` ). Extended logger provides functions [ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm) and [FatalFltr&lt;TException&gt;(ILogger.TException, string, bool)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa) for this purpose. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (Exception ex) when (logger.ErrorFltr(ex,"Error here!"){
+      //newer called as the default return value of ErrorFltr is false     
+    }
+```
+ The example above logs but never catch all exceptions. The following code catch and log the ArgumentException and logs any other exception without catching it. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (ArgumentException e) when (Logger.ErrorFltr(e,catchIt:true)) { ... }
+    catch (Exception e) when (Logger.FatalFltr(e)) {}
+```
+
+
+  Logger can also create and exception, log it and return using functions [Error&lt;TException&gt;(string, Exception)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh) and [Fatal&lt;TException&gt;(string, Exception)](net.adamec.lib.common.logging__1g9pm29.md#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73) 
+```csharp
+    if(value is null) throw logger.Fatal<ArgumentNullException>("Value is null");
+```
+
+
+  When logging an exception using the [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2) methods, the event property `StackTrace` is set from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> , when the logger creates an exception, the property is set using `new StackTrace(2, true).ToString()` . In other cases when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> is null or empty, `new StackTrace(true).ToString()` is used.
+
+  [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2) also provides set of methods for logging with the correlation ID (for example in integration scenarios), where the given correlation ID is set to the event property `CorrelationId` . Such methods have the name ending with `Corr` suffix.
+
+
 
 
 ###  Methods ###
@@ -1217,7 +1287,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1243,7 +1313,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1269,7 +1339,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1295,7 +1365,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1321,7 +1391,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1348,7 +1418,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1374,7 +1444,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1400,7 +1470,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1427,7 +1497,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1454,7 +1524,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionFilter.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1506,7 +1576,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1541,7 +1611,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1567,7 +1637,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1593,7 +1663,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1619,7 +1689,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1646,7 +1716,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1672,7 +1742,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1698,7 +1768,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1725,7 +1795,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1752,7 +1822,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionFilter.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1787,7 +1857,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1822,7 +1892,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1848,7 +1918,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1874,7 +1944,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1900,7 +1970,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1926,7 +1996,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1952,7 +2022,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1978,7 +2048,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -2004,7 +2074,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -2030,7 +2100,7 @@ Go to [namespaces](net.adamec.lib.common.actor.md#namespace-list) or [types](net
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.actor           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.md#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 

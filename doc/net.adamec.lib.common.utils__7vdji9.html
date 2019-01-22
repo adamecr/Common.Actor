@@ -53,11 +53,21 @@ Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCom
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
 Derived: <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystem__2jlyi3" >net.adamec.lib.common.actor.actorsystem.ActorSystem</a>, <a href="net.adamec.lib.common.actor.actorsystem__1ihx1md.html#t-net.adamec.lib.common.actor.actorsystem.actorsystemdispatcher__1p6wtbe" >net.adamec.lib.common.actor.actorsystem.ActorSystemDispatcher</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.actor__buuxwr" >net.adamec.lib.common.actor.actor.Actor</a>, <a href="net.adamec.lib.common.actor.actor__1ldg5ba.html#t-net.adamec.lib.common.actor.actor.syncactor__cgt0u6" >net.adamec.lib.common.actor.actor.SyncActor</a><br />
 Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" class="link-external" target="_blank" >IDisposable</a></p>
+<h3>  Constants </h3>
+<table><tr><th>Name</th><th>Value</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz" >DisposedFlag</a></td><td>1</td><td>Internal flag whether the object is fully disposed</td></tr>
+</table>
+<p> </p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#f-net.adamec.lib.common.utils.basedisposable.isdisposed__2u766d" >isDisposed</a></td><td>private</td><td>The object is disposed when equals to <a href="net.adamec.lib.common.utils__7vdji9.html#f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz" >DisposedFlag</a></td></tr>
+</table>
+<p> </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#p-net.adamec.lib.common.utils.basedisposable.disposed__nxq2fp" >Disposed</a></td><td>public</td><td>Flag whether the object is fully disposed</td></tr>
-<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#p-net.adamec.lib.common.utils.basedisposable.disposedmanaged__1pm7df6" >DisposedManaged</a></td><td>public</td><td>Flag whether the managed resources are disposed</td></tr>
-<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#p-net.adamec.lib.common.utils.basedisposable.disposednative__fqjn7i" >DisposedNative</a></td><td>public</td><td>Flag whether the native resources are disposed</td></tr>
+<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#p-net.adamec.lib.common.utils.basedisposable.disposed__nxq2fp" >Disposed</a></td><td>public</td><td>Returns <pre><code class="csharp">true</code></pre> when the object is fully disposed</td></tr>
+<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#p-net.adamec.lib.common.utils.basedisposable.disposedmanaged__1pm7df6" >DisposedManaged</a></td><td>public</td><td>Returns <pre><code class="csharp">true</code></pre> when the managed resources are disposed</td></tr>
+<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#p-net.adamec.lib.common.utils.basedisposable.disposednative__fqjn7i" >DisposedNative</a></td><td>public</td><td>Returns <pre><code class="csharp">true</code></pre> when the native resources are disposed</td></tr>
 </table>
 <p> </p>
 <h3>  Destructor </h3>
@@ -67,6 +77,7 @@ Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposa
 <p> </p>
 <h3>  Methods </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.assertnotdisposed_system.string___18xs7ya" >AssertNotDisposed(string)</a></td><td>protected</td><td>Throws an <a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" class="link-external" target="_blank" >System.ObjectDisposedException</a> when the current object is disposed</td></tr>
 <tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.dispose__6qe9ri" >Dispose()</a></td><td>public</td><td>Dispose the object</td></tr>
 <tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.dispose_system.boolean___1vzs8w4" >Dispose(bool)</a></td><td>protected</td><td>Internal implementation of dispose - free the managed and native resources using the respective methods</td></tr>
 <tr><td><a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85" >DisposeManaged()</a></td><td>protected</td><td>Dispose any disposable managed fields or properties.</td></tr>
@@ -75,14 +86,36 @@ Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposa
 <p> </p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
+<h2>  <a id="f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz" ></a>  BaseDisposable.DisposedFlag Constant </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.utils__7vdji9.html#n-net.adamec.lib.common.utils__7vdji9" >net.adamec.lib.common.utils</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >BaseDisposable</a><br />
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs<br />
+Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable" >RadCommons.utils.BaseDisposable</a></small></p>
+<p>Internal flag whether the object is fully disposed</p>
+<pre><code class="csharp">private const int DisposedFlag = 1</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.utils.basedisposable.isdisposed__2u766d" ></a>  BaseDisposable.isDisposed Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.utils__7vdji9.html#n-net.adamec.lib.common.utils__7vdji9" >net.adamec.lib.common.utils</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >BaseDisposable</a><br />
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs<br />
+Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable" >RadCommons.utils.BaseDisposable</a></small></p>
+<p>The object is disposed when equals to <a href="net.adamec.lib.common.utils__7vdji9.html#f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz" >DisposedFlag</a></p>
+<pre><code class="csharp">private int isDisposed</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
 <h2>  <a id="p-net.adamec.lib.common.utils.basedisposable.disposed__nxq2fp" ></a>  BaseDisposable.Disposed Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.utils__7vdji9.html#n-net.adamec.lib.common.utils__7vdji9" >net.adamec.lib.common.utils</a><br />
 Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >BaseDisposable</a><br />
 Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable" >RadCommons.utils.BaseDisposable</a></small></p>
-<p>Flag whether the object is fully disposed</p>
-<pre><code class="csharp">public bool Disposed { get; private set; }</code></pre>
+<p>Returns <pre><code class="csharp">true</code></pre> when the object is fully disposed</p>
+<pre><code class="csharp">public bool Disposed { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
@@ -92,7 +125,7 @@ Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >BaseDisposable</a><br />
 Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable" >RadCommons.utils.BaseDisposable</a></small></p>
-<p>Flag whether the managed resources are disposed</p>
+<p>Returns <pre><code class="csharp">true</code></pre> when the managed resources are disposed</p>
 <pre><code class="csharp">public bool DisposedManaged { get; private set; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
@@ -103,7 +136,7 @@ Assembly: net.adamec.lib.common.actor<br />
 Type: <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >BaseDisposable</a><br />
 Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable" >RadCommons.utils.BaseDisposable</a></small></p>
-<p>Flag whether the native resources are disposed</p>
+<p>Returns <pre><code class="csharp">true</code></pre> when the native resources are disposed</p>
 <pre><code class="csharp">public bool DisposedNative { get; private set; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
@@ -115,6 +148,20 @@ Type: <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.
 Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable" >RadCommons.utils.BaseDisposable</a></small></p>
 <pre><code class="csharp"> ~BaseDisposable()</code></pre>
+<p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.utils.basedisposable.assertnotdisposed_system.string___18xs7ya" ></a>  BaseDisposable.AssertNotDisposed(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.utils__7vdji9.html#n-net.adamec.lib.common.utils__7vdji9" >net.adamec.lib.common.utils</a><br />
+Assembly: net.adamec.lib.common.actor<br />
+Type: <a href="net.adamec.lib.common.utils__7vdji9.html#t-net.adamec.lib.common.utils.basedisposable__7s72ps" >BaseDisposable</a><br />
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs<br />
+Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable" >RadCommons.utils.BaseDisposable</a></small></p>
+<p>Throws an <a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" class="link-external" target="_blank" >System.ObjectDisposedException</a> when the current object is disposed</p>
+<pre><code class="csharp">protected void AssertNotDisposed(string message = null)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Optional exception message</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" class="link-external" target="_blank" >System.ObjectDisposedException</a></dt><dd>Current object is disposed</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.utils.basedisposable.dispose__6qe9ri" ></a>  BaseDisposable.Dispose() Method </h2>
@@ -136,7 +183,7 @@ Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs<br />
 Source-only packages: <a href="src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable" >RadCommons.utils.BaseDisposable</a></small></p>
 <p>Internal implementation of dispose - free the managed and native resources using the respective methods</p>
 <pre><code class="csharp">protected virtual void Dispose(bool disposing)</code></pre>
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>disposing</strong></dt><dd>Flag whether the object is disposing (called from <a href="net.adamec.lib.common.utils__7vdji9.html#m-net.adamec.lib.common.utils.basedisposable.dispose__6qe9ri" >Dispose()</a> method). False if called from destructor</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>disposing</strong></dt><dd>True to dispose both managed and native resources, false to dispose the native resources only</dd></dl>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.actor.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.actor.html#type-list" >types</a> or <a href="net.adamec.lib.common.actor.html#package-list" >source-only packages</a></p>
 <p> </p>

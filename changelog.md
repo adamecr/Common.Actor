@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+
+## [1.0.1] - 2019-01-22 ##
+### Changed ###
+- Updated Commons to latest version
+
+### Fixed ###
+- Updated build template - source code packages are not dependency of standard nuget package anymore
+
+
 ## [1.0.0] - 2018-12-30 ##
 ### Changed ###
 - Updated Commons to latest version
@@ -15,5 +24,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added ###
 - Initial release
 
+[1.0.1]: https://github.com/adamecr/Common.Actor/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/adamecr/Common.Actor/compare/v0.1.0...v1.0.0
 [0.1.0]: https://github.com/adamecr/Common.Actor/releases/tag/v0.1.0
